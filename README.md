@@ -11,6 +11,7 @@
 
 - Enemy Creation에 Object Pooling을 사용하여 가비지컬렉터 비용 최소화.
 - NavMeshAgent를 활용하여 Enemy가 플레이어를 추적.
+- RayCast를 활용하여 플레이어가 Enemy의 사정거리 밖으로 나갈경우 Enemy는 제자리로 돌아가도록 구현.
 - 카메라 Zoom in & out 기능 및 미니맵 구현.
 - 인벤토리 (still 구현중).
 - 다음 맵으로 이동 전 맵 로딩 시간을 위한 Map Loading Scene 구현 (SceneManager.LoadSceneAsync 활용).

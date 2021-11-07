@@ -12,6 +12,6 @@
 - Enemy Creation에 Object Pooling을 사용하여 가비지컬렉터 비용 최소화.
 - NavMeshAgent를 활용하여 Enemy가 플레이어를 추적.
 - 카메라 Zoom in & out 기능 및 미니맵 구현.
-- 인벤토리 (구현중).
+- 인벤토리 (still 구현중).
 - 다음 맵으로 이동 전 맵 로딩 시간을 위한 Map Loading Scene 구현 (SceneManager.LoadSceneAsync 활용).
 - 씬 이동 시 DontDestroy를 활용하여 캐릭터 및 주요 정보 유지.

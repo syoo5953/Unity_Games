@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerAttack playerAttack;
     public GameObject skill_1;
     public GameObject skill_wing;
-
+    public GameObject inventory;
     private float h;
     private float v;
     private float Yvelocity;
@@ -49,19 +50,32 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         weapon_L = weapons[0].GetComponent<Weapon>();
         weapon_R = weapons[1].GetComponent<Weapon>();
-       // controller.detectCollisions = false;
+        // controller.detectCollisions = false;
     }
 
     void Update()
     {
         GetInput();
-        if(isFireReady && !isSkill)
+        if (isFireReady && !isSkill)
         {
             Movement();
             Jump();
         }
-        Attack();
+        if (!IsMouseOverUI())
+        {
+            Attack();
+        }
         Skill();
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inventory.GetComponent<Inventory>().OpenClose();
+        }
+    }
+
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
     void GetInput()
@@ -84,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         direction = followCamera.transform.TransformDirection(direction);
         direction.y = 0f;
 
-        if(direction != Vector3.zero)
+        if (direction != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             Quaternion newRotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSmoothing * Time.deltaTime);
@@ -104,8 +118,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        
-        
+
+
         Yvelocity -= gravity * Time.deltaTime;
         direction.y = Yvelocity;
         controller.Move(direction * speed * Time.deltaTime);
@@ -119,18 +133,19 @@ public class PlayerMovement : MonoBehaviour
                 Yvelocity = jumpSpeed;
                 anim.SetBool("isJump", true);
                 isJump = true;
-            } else
+            }
+            else
             {
                 anim.SetBool("isJump", false);
                 isJump = false;
             }
         }
-      
+
     }
 
     void Attack()
     {
-        if(!isJump)
+        if (!isJump)
         {
             fireDelay += Time.deltaTime;
             isFireReady = weapon_rate < fireDelay;
@@ -148,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     StartCoroutine(LeftEffectOn());
                     LeftAttack();
-                    
+
                 }
                 else if (combo == 2)
                 {
@@ -203,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator SkillOut()
     {
-        GameObject skill_effect = Instantiate(skill_1, transform.position + new Vector3(0f,1.2f,0f), Quaternion.Euler(new Vector3(-90, 0, 0)));
+        GameObject skill_effect = Instantiate(skill_1, transform.position + new Vector3(0f, 1.2f, 0f), Quaternion.Euler(new Vector3(-90, 0, 0)));
         Destroy(skill_effect, 2.3f);
         yield return new WaitForSeconds(2f);
         isSkill = false;

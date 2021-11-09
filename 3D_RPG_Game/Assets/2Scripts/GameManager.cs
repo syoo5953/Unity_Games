@@ -8,11 +8,15 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     new AudioSource audio;
     public AudioClip otherClip;
+    public AudioClip pickupSound;
     public GameObject skeleton;
     public GameObject snowingParticle;
     public int xPos;
     public int zPos;
+    int hasGold = 0;
     private static GameManager gameManagerInstance;
+    public List<GameObject> items = new List<GameObject>();
+    public Dictionary<string, int> itemDict = new Dictionary<string, int>();
     void Awake()
     {
         if (gameManagerInstance == null)
@@ -58,5 +62,39 @@ public class GameManager : MonoBehaviour
         xPos = Random.Range(-13, 12);
         zPos = Random.Range(20, 40);
         Instantiate(skeleton, new Vector3(xPos, -5.16f, zPos), Quaternion.identity);
+    }
+
+    public void AddItem(GameObject item)
+    {
+        audio.PlayOneShot(pickupSound);
+        string name = item.GetComponent<Item>().itemName;
+        GameObject gameObject = (GameObject)Resources.Load(name);
+        if (!itemDict.ContainsKey(name))
+        {
+            itemDict.Add(name, 1);
+        }
+        else
+        {
+            itemDict[name] += 1;
+        }
+
+        if (!items.Contains(gameObject))
+        {
+            items.Add(gameObject);
+        }
+
+        Destroy(item);
+    }
+
+    public void AddGold(GameObject item)
+    {
+        audio.PlayOneShot(pickupSound);
+        hasGold += skeleton.GetComponent<EnemyHealth>().goldAmount;
+        Destroy(item);
+    }
+
+    public int getHasGold()
+    {
+        return hasGold;
     }
 }

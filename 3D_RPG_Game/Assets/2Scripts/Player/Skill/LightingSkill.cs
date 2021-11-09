@@ -9,6 +9,7 @@ public class LightingSkill : MonoBehaviour
     {
         if(other.tag == "Skeleton")
         {
+            if(!other.GetComponent<EnemyHealth>().isDead)
             other.GetComponent<EnemyHealth>().TakeDamage(lightning_damage);
         }
     }

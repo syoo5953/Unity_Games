@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     private GameManager gameManager;
     public int maxHealth;
     public int currHealth;
+    public int goldAmount;
     public EnemyMove enemyMove;
     public bool isDead = false;
     public bool damaged;
@@ -17,11 +18,14 @@ public class EnemyHealth : MonoBehaviour
     public float yPnt;
     Animator anim;
     public GameObject canvas;
+    bool isCanvasOn;
     public GameObject damagePopup;
     List<GameObject> popUPList;
     private Camera cam;
-    private bool isCanvasOn;
+    public float dropY;
 
+    public GameObject[] DropItems;
+    private float ItemPosX = 0;
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -55,6 +59,7 @@ public class EnemyHealth : MonoBehaviour
             gameObject.layer = 8;
             anim.SetTrigger("doDie");
             GetComponent<NavMeshAgent>().enabled = false;
+            StartCoroutine(DropItem());
             gameManager.SpawnEnemy();
             Destroy(gameObject, 3f);
         }
@@ -77,5 +82,20 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         popUPList.Remove(clone);
         Destroy(clone);
+    }
+
+    IEnumerator DropItem()
+    {
+        foreach (GameObject ob in DropItems)
+        {
+            GameObject instantItem = Instantiate(ob, new Vector3(transform.position.x + ItemPosX, (transform.position.y - (GetComponent<CapsuleCollider>().bounds.size.y / 2) + dropY), transform.position.z), transform.rotation);
+            instantItem.transform.rotation = Quaternion.LookRotation(cam.transform.forward);
+            ItemPosX += 0.5f;
+            if (instantItem != null)
+            {
+                Destroy(instantItem, 7f);
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 }

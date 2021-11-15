@@ -16,3 +16,7 @@
 - 인벤토리 (still 구현중).
 - 다음 맵으로 이동 전 맵 로딩 시간을 위한 Map Loading Scene 구현 (SceneManager.LoadSceneAsync 활용).
 - 씬 이동 시 DontDestroy를 활용하여 캐릭터 및 주요 정보 유지.
+
+#### 포트폴리오용 동영상 Path
+
+Unity_Games/유니티 데모버전 테스트용 게임 플레이영상/포트폴리오 짧은 영상 - 3D RPG 게임.mp4

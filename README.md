@@ -1,7 +1,8 @@
 # Unity_Game
 
-![image1](https://user-images.githubusercontent.com/92070358/143438247-f0fbdc87-0138-4a67-8478-d654de3d355b.PNG)
-![image2](https://user-images.githubusercontent.com/92070358/143438307-781b5cd3-5994-44b0-9e4d-139041393028.PNG)
+![image1](https://user-images.githubusercontent.com/92070358/143458615-bbb8cb48-152a-4be5-89d6-1a04a918962f.PNG)
+
+![image2](https://user-images.githubusercontent.com/92070358/143458649-866e4066-48a6-4cb8-9723-9dff1c4cc39b.PNG)
 
 
 개인 게임 작업물 레퍼지토리.

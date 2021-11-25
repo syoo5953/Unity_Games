@@ -36,6 +36,9 @@
 - 카메라 Zoom in & out 기능 및 미니맵 구현.
 - 다음 맵으로 이동 전 맵 로딩 시간을 위한 Map Loading Scene 구현 (SceneManager.LoadSceneAsync 활용).
 - 씬 이동 시 DontDestroy를 활용하여 캐릭터 및 주요 정보 유지.
+- Post Processing을 활용한 Antialiasing (오브젝트의 계단식 랜더링을 부드럽게 개선)
+- 퀘스트 UI 추가완료
+- 인벤토리 추가완료
 
 ##### 포트폴리오 동영상 (링크 접속 후 view raw 클릭)
 

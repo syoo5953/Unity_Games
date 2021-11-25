@@ -1,5 +1,9 @@
 # Unity_Game
 
+![image1](https://user-images.githubusercontent.com/92070358/143438247-f0fbdc87-0138-4a67-8478-d654de3d355b.PNG)
+![image2](https://user-images.githubusercontent.com/92070358/143438307-781b5cd3-5994-44b0-9e4d-139041393028.PNG)
+
+
 개인 게임 작업물 레퍼지토리.
 
 **3D RPG 게임 (포트폴리오용)**

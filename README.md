@@ -36,7 +36,6 @@
 - Particle, Canvas 등 Object Pooling 추가 (Instantiate 대신 SetActive(true/false)로 수정)
 - NavMeshAgent를 활용하여 Enemy가 플레이어를 추적.
 - RayCast를 활용하여 플레이어가 Enemy의 사정거리 밖으로 나갈경우 Enemy는 제자리로 돌아가도록 구현.
-- 카메라 Zoom in & out 기능 및 미니맵 구현.
 - 다음 맵으로 이동 전 맵 로딩 시간을 위한 Map Loading Scene 구현 (SceneManager.LoadSceneAsync 활용).
 - 씬 이동 시 DontDestroy를 활용하여 캐릭터 및 주요 정보 유지.
 - Post Processing을 활용한 Antialiasing (오브젝트의 계단식 랜더링을 부드럽게 개선)

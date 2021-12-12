@@ -1,7 +1,8 @@
 # Unity_Game
 
-![image1](https://user-images.githubusercontent.com/92070358/143438247-f0fbdc87-0138-4a67-8478-d654de3d355b.PNG)
-![image2](https://user-images.githubusercontent.com/92070358/143438307-781b5cd3-5994-44b0-9e4d-139041393028.PNG)
+![image1](https://user-images.githubusercontent.com/92070358/143458615-bbb8cb48-152a-4be5-89d6-1a04a918962f.PNG)
+
+![image2](https://user-images.githubusercontent.com/92070358/143458649-866e4066-48a6-4cb8-9723-9dff1c4cc39b.PNG)
 
 
 개인 게임 작업물 레퍼지토리.
@@ -35,12 +36,12 @@
 - Particle, Canvas 등 Object Pooling 추가 (Instantiate 대신 SetActive(true/false)로 수정)
 - NavMeshAgent를 활용하여 Enemy가 플레이어를 추적.
 - RayCast를 활용하여 플레이어가 Enemy의 사정거리 밖으로 나갈경우 Enemy는 제자리로 돌아가도록 구현.
-- 카메라 Zoom in & out 기능 및 미니맵 구현.
 - 다음 맵으로 이동 전 맵 로딩 시간을 위한 Map Loading Scene 구현 (SceneManager.LoadSceneAsync 활용).
 - 씬 이동 시 DontDestroy를 활용하여 캐릭터 및 주요 정보 유지.
 - Post Processing을 활용한 Antialiasing (오브젝트의 계단식 랜더링을 부드럽게 개선)
 - 퀘스트 UI 추가완료
 - 인벤토리 추가완료
+- 부활, 힐 등 기타 기능 구현완료
 
 ##### 포트폴리오 동영상 (링크 접속 후 view raw 클릭)
 

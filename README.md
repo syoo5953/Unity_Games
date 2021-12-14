@@ -1,9 +1,10 @@
 # Unity_Game
 
-![image1](https://user-images.githubusercontent.com/92070358/143458615-bbb8cb48-152a-4be5-89d6-1a04a918962f.PNG)
+![11](https://user-images.githubusercontent.com/92070358/146035411-254804f6-501e-4248-84ad-d663b1647635.PNG)
 
-![image2](https://user-images.githubusercontent.com/92070358/143458649-866e4066-48a6-4cb8-9723-9dff1c4cc39b.PNG)
+![22](https://user-images.githubusercontent.com/92070358/146035435-ab233231-1bdd-4173-bbe5-47164b9f0683.PNG)
 
+![33](https://user-images.githubusercontent.com/92070358/146035442-cb5fdfb2-4236-4a0a-8e64-1a877b7f6509.PNG)
 
 개인 게임 작업물 레퍼지토리.
 

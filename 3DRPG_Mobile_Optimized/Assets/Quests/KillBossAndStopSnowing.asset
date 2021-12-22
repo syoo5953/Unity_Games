@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67901067f0a6394b9d3050950c65749, type: 3}
+  m_Name: KillBossAndStopSnowing
+  m_EditorClassIdentifier: 
+  state: 0
+  title: "<\uB108\uAC00 \uC5BC\uB9C8\uB098 \uAC15\uD55C\uC9C0 \uC99D\uBA85\uD574\uC918!>"
+  content: "\uBCF4\uC2A4\uD55C\uD14C \uAC00\uB294 \uAE38\uC744 \uC5F4\uC5B4\uB450\uC5C8\uC73C\uB2C8\uAE4C
+    \uAC00\uC11C \uBCF4\uC2A4\uB97C \uCC98\uCE58\uD574\uC918..! \n\n\uBCF4\uC2A4\uB97C
+    \uCC98\uCE58\uD558\uBA74 <color=red>\uD32C\uB358\uD2B8</color>\uB97C \uC5BB\uC744
+    \uC218 \uC788\uC744\uAC70\uC57C. \uC774 \uD32C\uB358\uD2B8\uB97C \uC0AC\uC6A9\uD574\uC11C
+    \uB208\uC744 \uBA48\uCDB0\uC918!!"
+  completeDialog: "\uB300\uB2E8\uD55C\uAC78?? \uB108 \uC815\uB9D0 \uAC15\uD558\uAD6C\uB098..!!
+    \uBCF4\uC2A4\uB97C \uC7A1\uC73C\uB7EC \uAC08 \uC218 \uC788\uACA0\uC5B4! \uC5EC\uAE30
+    \uBCF4\uC0C1\uC774\uC57C!\n"
+  collectObjectives:
+  - item: {fileID: 11400000, guid: 7b2f0a0dccb918f46823dffce2e0c33b, type: 2}
+    amount: 1
+  rewards:
+    ItemReward: {fileID: 11400000, guid: 94fc15984201f9f4f9979ae902e7684d, type: 2}
+    ItemRewardCount: 8
+    EXPReward: 200

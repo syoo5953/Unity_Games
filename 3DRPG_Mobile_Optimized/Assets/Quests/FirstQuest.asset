@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67901067f0a6394b9d3050950c65749, type: 3}
+  m_Name: FirstQuest
+  m_EditorClassIdentifier: 
+  state: 3
+  title: "\uC131\uC73C\uB85C \uAC00\uB294\uBC95."
+  content: "\uC131\uC73C\uB85C \uAC00\uB294 \uCD94\uCC9C\uC11C\uB97C \uC368\uC904\uAC8C.
+    \uB4A4\uC5D0\uC788\uB294 \uBB38\uC744 \uC5F4\uACE0 \uC131\uC73C\uB85C \uAC00\uBD10!"
+  completeDialog: "\uC131\uC73C\uB85C \uC628\uAC78 \uD658\uC601\uD574\uC694!"
+  collectObjectives:
+  - item: {fileID: 11400000, guid: 359229ed295c56c4ebc494f32372c4ca, type: 2}
+    amount: 1
+  rewards:
+    ItemReward: {fileID: 0}
+    ItemRewardCount: 0
+    EXPReward: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67901067f0a6394b9d3050950c65749, type: 3}
+  m_Name: GetWeapon
+  m_EditorClassIdentifier: 
+  state: 3
+  title: "\uBAA8\uD5D8\uC758 \uCCAB \uC2DC\uC791"
+  content: "\uC81C\uAC00 \uB4DC\uB9B4 \uC758\uB8B0\uB97C \uC218\uD589\uD558\uC2DC\uAE30\uC804\uC5D0
+    \uC6B0\uC120 \uBB34\uAE30\uBD80\uD130 \uBA3C\uC800 \uAC16\uCD94\uC154\uC57C\uACA0\uC5B4\uC694!
+    \uC606\uC5D0 \uC788\uB294 \uB3CC\uC11D\uC0C1\uC5D0\uC11C \uBB34\uAE30\uC758 \uC7AC\uB8CC\uB97C
+    \uC5BB\uC5B4\uC640\uC8FC\uC138\uC694!"
+  completeDialog: "\uBB34\uAE30\uB97C \uC9C0\uAE09\uD574\uB4DC\uB838\uC5B4\uC694!"
+  collectObjectives:
+  - item: {fileID: 11400000, guid: 8d3d4697f925afc429d4a88fb8b0bde3, type: 2}
+    amount: 1
+  rewards:
+    ItemReward: {fileID: 0}
+    ItemRewardCount: 0
+    EXPReward: 0

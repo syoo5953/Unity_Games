@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67901067f0a6394b9d3050950c65749, type: 3}
+  m_Name: KillMonsters
+  m_EditorClassIdentifier: 
+  state: 0
+  pass_state: 1
+  title: "<\uBCF4\uC2A4\uC5D0\uAC8C \uAC00\uB294 \uD3EC\uD0C8\uC0DD\uC131 \uD018\uC2A4\uD2B8>"
+  content: "\uC0AC\uC545\uD55C \uBCF4\uC2A4\uB85C \uC778\uD574 \uBD81\uBD80\uC9C0\uBC29\uC740
+    \uC0AC\uACC4\uC808 \uB0B4\uB0B4 \uB208\uC774 \uC624\uACE0\uC788\uC5B4\uC694!
+    \uBD80\uB514 \uC0AC\uD559\uD55C \uBCF4\uC2A4\uB97C \uCC98\uCE58\uD574 \uB208\uC744
+    \uBA48\uCDB0\uC8FC\uC138\uC694.\n\n\uADF8 \uC804\uC5D0 \uBCF4\uC2A4\uC5D0\uAC8C
+    \uAC00\uB294 \uD3EC\uD0C8\uC744 \uC0DD\uC131\uD558\uB824\uBA74 \uD544\uB4DC\uC5D0
+    \uB098\uAC00 \uC81C\uAC00 \uC694\uCCAD\uB4DC\uB9AC\uB294 \uC7AC\uB8CC\uB4E4\uC744
+    \uBA3C\uC800 \uC218\uC9D1\uD574\uC640\uC8FC\uC138\uC694!\n\n\uD30C\uB780\uB2EC\uD33D\uC774\uB97C
+    \uCC98\uCE58\uD558\uBA74 \uB098\uC624\uB294 <color=red>\uBC15\uC2A4 5\uAC1C</color>,
+    \uC2A4\uCF08\uB808\uD1A4\uC744 \uCC98\uCE58\uD558\uBA74 \uB098\uC624\uB294 <color=red>\uD574\uC801
+    \uB3D9\uC804 3\uAC1C</color>\uB97C \uAD6C\uD574\uC640\uC8FC\uC138\uC694."
+  completeDialog: "\uC774\uC815\uB3C4\uBA74 \uBCF4\uC2A4\uB97C \uCDA9\uBD84\uD788
+    \uBB3C\uB9AC\uCE60\uC218 \uC788\uACA0\uC5B4\uC694! \uBA3C\uC800 \uBCF4\uC0C1\uC744
+    \uBC1B\uC73C\uC138\uC694.\n"
+  collectObjectives:
+  - item: {fileID: 11400000, guid: 13fabc0095db35744b27b7a6785cf581, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: 294ab613ef243224fab43b7d9816d5fb, type: 2}
+    amount: 3
+  rewards:
+    ItemReward: {fileID: 11400000, guid: 32d1527528d62cd418d854b383133d58, type: 2}
+    ItemRewardCount: 8
+    EXPReward: 30

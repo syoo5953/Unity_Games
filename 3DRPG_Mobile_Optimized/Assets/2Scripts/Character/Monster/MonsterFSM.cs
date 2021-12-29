@@ -7,11 +7,9 @@ public class MonsterFSM : MonoBehaviour {
     PlayerBase target;
     public PlayerBase playerBase;
     public MonsterBase monsterBase;
-    Vector3 startPosition;
     Animator anim;
-    private float startTotargetDist;
-    private bool isTargeted;
     public bool isAttack;
+    private Vector3 origianlPos;
 
     public HitBox hitBox;
 
@@ -22,8 +20,8 @@ public class MonsterFSM : MonoBehaviour {
 
     private void Awake()
     {
+        origianlPos = transform.position;
         anim = GetComponent<Animator>();
-        startPosition = transform.position;
         nav = GetComponent<NavMeshAgent>();
         target = GameManager.Instance.player;
         playerBase = target;
@@ -33,73 +31,45 @@ public class MonsterFSM : MonoBehaviour {
     {
         gameObject.layer = 10;
         nav.enabled = true;
-        isTargeted = true;
         isAttack = false;
     }
 
     void FixedUpdate()
     {
-        if(playerBase.gameObject.layer == 9)
-        {
-            DetectPlayer();
-            Targeting();
-        } else if(playerBase.gameObject.layer == 17)
-        {
-            isTargeted = false;
-            nav.enabled = false;
-        }
+        float dist = Vector3.Distance(transform.position, target.transform.position);
 
-        if (nav.enabled && isTargeted == true)
+        if(dist < 15 && !playerBase.IsDie)
+        {
+            FollowPlayer();
+            Targeting();
+        } else if(dist > 15 && !playerBase.IsDie)
+        {
+            ReturnToOrigin();
+        }
+    }
+
+    private void FollowPlayer()
+    {
+        if(!playerBase.IsDie)
         {
             nav.SetDestination(target.transform.position);
             anim.SetBool("isMove", true);
         }
     }
 
-    private void DetectPlayer()
+    private void ReturnToOrigin()
     {
-        float dist = Vector3.Distance(transform.position, target.transform.position);
-        float startTotarget = (transform.position - startPosition).magnitude;
+        float dist = Vector3.Distance(transform.position, origianlPos);
+        nav.SetDestination(origianlPos);
+        Debug.Log(Vector3.Distance(transform.position, origianlPos));
 
-        if(!playerBase.IsDie)
+        if(dist < 3)
         {
-            if (dist < 15 && !isAttack)
-            {
-                isTargeted = true;
-                nav.enabled = true;
-            }
-            if (dist > 15)
-            {
-                isTargeted = false;
-                nav.enabled = false;
-                startTotargetDist = 2f;
-
-                if ((startTotarget > startTotargetDist) && (Vector3.Distance(transform.position, startPosition) > 5) || playerBase.IsDie)
-                {
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(startPosition - transform.position), 15f * Time.deltaTime);
-                    transform.position += transform.forward * 8f * Time.deltaTime;
-                }
-                else
-                {
-                    anim.SetBool("isMove", false);
-                }
-            }
+            anim.SetBool("isMove", false);
         }
     }
-
     private void Targeting()
     {
-        /*
-        float targetRadius = 0.5f;
-        float targetRange = 0.5f;
-        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, targetRadius, transform.forward, targetRange, LayerMask.GetMask("Player"));
-        
-        if (rayHits.Length > 0.01f && !isAttack)
-        {
-            StartCoroutine(Attack());
-        }
-        */
-
         if (gameObject.GetComponentInChildren<HitBox>().targetList.Contains(GameManager.Instance.player.GetComponent<CharacterController>()) && !isAttack)
         {
             StartCoroutine(Attack());
@@ -108,16 +78,18 @@ public class MonsterFSM : MonoBehaviour {
 
     IEnumerator Attack()
     {
+        nav.velocity = Vector3.zero;
+        nav.isStopped = true;
         transform.LookAt(target.transform.position);
-        isTargeted = false;
-        nav.enabled = false;
         isAttack = true;
         anim.SetBool("isMove", false);
         anim.SetBool("isAttack", true);
-        yield return new WaitForSeconds(0.5f);
+        if(transform.gameObject.tag.Equals("Skeleton"))
+            yield return new WaitForSeconds(2f);
+        else if(transform.gameObject.tag.Equals("Turtleshell"))
+            yield return new WaitForSeconds(0.5f);
         anim.SetBool("isAttack", false);
-        nav.enabled = true;
-        isTargeted = true;
+        nav.isStopped = false;
         isAttack = false;
     }
 

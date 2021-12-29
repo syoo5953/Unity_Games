@@ -49694,7 +49694,7 @@ Transform:
   - {fileID: 1201187654522541040}
   - {fileID: 1201210199646455106}
   m_Father: {fileID: 1203865569515449952}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198328055045635944
 GameObject:
@@ -60239,145 +60239,6 @@ Transform:
   m_Father: {fileID: 1203587546473463632}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1198528049379243444
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1201229477616818030}
-  - component: {fileID: 1239138880479951806}
-  - component: {fileID: 1171638773514653292}
-  - component: {fileID: 1242072505117262358}
-  m_Layer: 23
-  m_Name: DamageablePart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1201229477616818030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198528049379243444}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3305533, z: -0.107673645}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1203865569515449952}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1239138880479951806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198528049379243444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0149b5ab8f608c943b260125ac76d875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHitPoints: 3
-  invulnerabiltyTime: 3
-  hitAngle: 170
-  hitForwardRotation: 180
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1239504843262944312}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnReceiveDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1239504843262944312}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Hit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1325397738770766076}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnHitWhileInvulnerable:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBecomeVulnerable:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1239504843262944312}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ReturnVulnerable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnResetDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onDamageMessageReceivers: []
---- !u!65 &1171638773514653292
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198528049379243444}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.78702366, y: 1.0561088, z: 0.43214035}
-  m_Center: {x: 0.024630606, y: 0.028054416, z: -0.34613228}
---- !u!114 &1242072505117262358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198528049379243444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a59352c87c75e7f4f9569dbf1a71069e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1201237530158700092}
 --- !u!1 &1198540120195752924
 GameObject:
   m_ObjectHideFlags: 0
@@ -65306,10 +65167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1203865569515449952}
   - component: {fileID: 1294360734785425396}
-  - component: {fileID: 1239504843262944312}
   - component: {fileID: 1302550622663225146}
-  - component: {fileID: 1238805439099368168}
-  - component: {fileID: 1239144510669622354}
   m_Layer: 23
   m_Name: Grenadier
   m_TagString: Untagged
@@ -65331,7 +65189,6 @@ Transform:
   - {fileID: 1204032437858660986}
   - {fileID: 1201206613784181396}
   - {fileID: 1203933261610887132}
-  - {fileID: 1201229477616818030}
   - {fileID: 1201061682178843176}
   - {fileID: 1201163966849922636}
   m_Father: {fileID: 0}
@@ -65356,37 +65213,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1239504843262944312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198564051604286306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c974c069622ac488eff39e86d2f59d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerScanner:
-    heightOffset: 2
-    detectionRadius: 40
-    detectionAngle: 360
-    maxHeightDifference: 5
-    viewBlockerLayerMask:
-      serializedVersion: 2
-      m_Bits: 65536
-  meleeRange: 4
-  rangeRange: 15
-  fistWeapon: {fileID: 1238970469645404016}
-  grenadeLauncher: {fileID: 1239448610788740216}
-  shield: {fileID: 1198338701289900536}
-  coreRenderer: {fileID: 1246915070653545056}
-  deathAudioPlayer: {fileID: 1239320862378614216}
-  damageAudioPlayer: {fileID: 1239283315425489124}
-  footstepAudioPlayer: {fileID: 1239329561746866942}
-  throwAudioPlayer: {fileID: 1239265187046747928}
-  punchAudioPlayer: {fileID: 1239416836114427444}
 --- !u!195 &1302550622663225146
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -65409,48 +65235,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1238805439099368168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198564051604286306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25877601b9081164b9b64ec159b9a452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interpolateTurning: 0
-  applyAnimationRotation: 0
---- !u!114 &1239144510669622354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198564051604286306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307f4c15d45ccff4292feb0c5477ade4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  events:
-  - eventName: ShieldChargeUp
-    targets:
-    - gameObject: {fileID: 1198214518418254952}
-      state: 1
-      particlesystem: {fileID: 0}
-  - eventName: GrenadeForm
-    targets:
-    - gameObject: {fileID: 1198714387662840914}
-      state: 1
-      particlesystem: {fileID: 0}
-  - eventName: Death
-    targets:
-    - gameObject: {fileID: 1198736301652566838}
-      state: 1
-      particlesystem: {fileID: 0}
 --- !u!1 &1198597691657591576
 GameObject:
   m_ObjectHideFlags: 0
@@ -75488,7 +75272,7 @@ Transform:
   - {fileID: 1204051355113830198}
   - {fileID: 1203634171260563550}
   m_Father: {fileID: 1203865569515449952}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1325733352120495526
 ParticleSystem:

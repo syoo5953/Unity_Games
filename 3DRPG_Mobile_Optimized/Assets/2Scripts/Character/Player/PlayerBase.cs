@@ -11,6 +11,9 @@ public class PlayerBase : CharacterBase{
     public Vector3 StartPos { get { 
             if(GameManager.Instance.passTheScene == 3)
             {
+                mainCam.GetComponent<CameraController>().transform.rotation = Quaternion.Euler(33, -5, 0);
+                mainCam.GetComponent<CameraController>().x = -5;
+                mainCam.GetComponent<CameraController>().y = 33;
                 return new Vector3(62f, 22f, -59f);
             } else if(GameManager.Instance.passTheScene == 2)
             {

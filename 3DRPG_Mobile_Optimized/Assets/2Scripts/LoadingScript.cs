@@ -9,7 +9,6 @@ public class LoadingScript : MonoBehaviour
     public Text loadText;
     PlayerBase player;
     
-
     private void OnEnable()
     {
         player = GameManager.Instance.player;

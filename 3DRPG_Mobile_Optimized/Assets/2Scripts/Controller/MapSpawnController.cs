@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapSpawnController : MonoBehaviour
 {
@@ -9,28 +10,26 @@ public class MapSpawnController : MonoBehaviour
 ;       player = GameObject.Find("Player");
         player.gameObject.SetActive(false);
         player.gameObject.SetActive(true);
+        player.transform.position = PlayerPos;
 
-        if (GameManager.Instance.passTheScene == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             GameManager.Instance.snowParticle.SetActive(false);
             GameManager.Instance.NPC.SetActive(true);
             UIManager.Instance.OnOffCanvas(true, true);
         }
-        else if (GameManager.Instance.passTheScene == 2)
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             GameManager.Instance.snowParticle.SetActive(false);
             UIManager.Instance.OnOffCanvas(true, true);
             GameManager.Instance.NPC.SetActive(false);
 
         }
-        else if (GameManager.Instance.passTheScene == 3)
+        else if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             GameManager.Instance.snowParticle.SetActive(true);
-            if (GameManager.Instance.bossSceneOn)
-            {
-                UIManager.Instance.OnOffCanvas(true, true);
-                GameManager.Instance.NPC.SetActive(false);
-            }
+            UIManager.Instance.OnOffCanvas(false, false);
+            GameManager.Instance.NPC.SetActive(false);
         }
     }
 }

@@ -75,7 +75,7 @@ public class Fader : MonoBehaviour
                     GameManager.Instance.player.transform.position = new Vector3(-5.57f, 11.04f, -170.42f);
                     GameManager.Instance.player.transform.rotation = Quaternion.Euler(0, 90, 0);
                     characterController.enabled = true;
-                    cameraController.transform.rotation = Quaternion.Euler(47, 88, 0); ;
+                    cameraController.transform.rotation = Quaternion.Euler(47, 88, 0);
                     cameraController.x = 88;
                     cameraController.y = 47;
                     CursorManager.Instance.SetCursorToDefault();

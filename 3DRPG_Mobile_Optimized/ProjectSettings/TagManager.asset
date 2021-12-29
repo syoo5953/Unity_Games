@@ -8,6 +8,9 @@ TagManager:
   - Turtleshell
   - Skeleton
   - FxTemporaire
+  - Boss
+  - BossCamera
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -20,10 +23,10 @@ TagManager:
   - Post Processing
   - Player
   - Monster
-  - Boss
+  - Item
   - NPC
   - Camera
-  - 
+  - Boss
   - 
   - 
   - Dead

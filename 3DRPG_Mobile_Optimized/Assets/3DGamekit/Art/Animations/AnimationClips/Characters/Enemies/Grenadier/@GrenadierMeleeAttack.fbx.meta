@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 25553dac765c5394a880b0b84ec0fde7
 ModelImporter:
-  serializedVersion: 20101
+  serializedVersion: 20200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -557,24 +557,42 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.4893048
-        functionName: StartAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
+      - time: 0.60278744
+        functionName: AttackEffect
+        data: MonsterAttackParticle
+        objectReferenceParameter: {fileID: 1198564051604286306, guid: 478e81952808fc84dbfad99981b70083,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.60026735
-        functionName: EndAttack
+      - time: 0.62305343
+        functionName: OnDamageNormal
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: 5cc2706719827aa4da4114cfabcb72a1,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.641115
+        functionName: AttackJumpAnimEvent
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 086d4f71106408a44bf806fb20723618,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: StopAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 5cc2706719827aa4da4114cfabcb72a1,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -640,6 +658,7 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

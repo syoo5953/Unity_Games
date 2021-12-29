@@ -4,12 +4,6 @@ using UnityEngine;
 
 
 	public class CursorLock : MonoBehaviour {
-
-		private bool isLocked;
-
-		void Start(){
-			isLocked = true;
-		}
 		/*
 		void Update(){
 			

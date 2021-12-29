@@ -8,7 +8,7 @@ public class EventCamera : MonoBehaviour {
 
     private TypeEffect DialogText;
 
-    private Vector3 BossPos = new Vector3(60.88f, 9.37f, -4.28f);
+    private Vector3 BossPos = new Vector3(51.9f, 5.6f, -15.5f);
     private Vector3 PrincessPos = new Vector3(-49.1f, 26f, 262.3f);
     private Vector3 PlayerPos = new Vector3(62f, 2.83f, -57.089f);
 

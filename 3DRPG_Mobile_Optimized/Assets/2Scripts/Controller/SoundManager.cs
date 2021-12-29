@@ -34,6 +34,12 @@ public class SoundManager : Singleton<SoundManager> {
             case "Skill2":
                 audioSources[7].Play();
                 break;
+            case "DragonFly":
+                audioSources[8].Play();
+                break;
+            case "DragonRoar":
+                audioSources[9].Play();
+                break;
         }
     }
 }

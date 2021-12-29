@@ -48,10 +48,15 @@ public abstract class CharacterBase : MonoBehaviour {
         {
             if (one != null)
             {
+                if (one.gameObject.tag.Equals("Boss"))
+                {
+                    Debug.Log("boss hitted");
+                }
                 CharacterBase character = one.GetComponent<CharacterBase>();
 
                 if (one.GetComponent<CharacterBase>() != null)
                 {
+
                     if (!character.IsDie)
                     {
                         character.TakeDamage(Damage);

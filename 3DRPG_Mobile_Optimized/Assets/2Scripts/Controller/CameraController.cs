@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour {
 
+    public GameObject RotationUI;
+
     private float xAngle;
     private float yAngle;
 
@@ -35,6 +37,9 @@ public class CameraController : MonoBehaviour {
     public float distanceMax = 15f;
     private Quaternion rotation;
     private void Awake() {
+#if (UNITY_ANDROID || UNITY_IPHONE) && !UNITY_EDITOR
+    RotationUI.SetActive(false);
+#endif
         xAngle = 88;
         yAngle = 47;
         this.rightFingerId = -1;

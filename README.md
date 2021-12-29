@@ -63,3 +63,9 @@
 ##### 포트폴리오 동영상 (링크 접속 후 view raw 클릭)
 
 [포트폴리오용 동영상](https://github.com/syoo5953/Unity_Games/blob/main/%EC%9C%A0%EB%8B%88%ED%8B%B0%20%EB%8D%B0%EB%AA%A8%EB%B2%84%EC%A0%84%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9%20%EA%B2%8C%EC%9E%84%20%ED%94%8C%EB%A0%88%EC%9D%B4%EC%98%81%EC%83%81/(%EB%AA%A8%EB%B0%94%EC%9D%BC%20%EC%A0%84%ED%99%98)%20%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%98%81%EC%83%81%20-%203D%20RPG%20%EA%B2%8C%EC%9E%84.mp4)
+
+### 2021-12-19 부수적인 기능들 구현완료
+1. 라이트 프로빙과 리플렉션 등을 활용한 랜더링 개선
+2. MMORPG 다운 게임을 위한 추가적인 기능추가 및 개선 진행중
+
+완성 후 동영상 링크 업로드 예정.

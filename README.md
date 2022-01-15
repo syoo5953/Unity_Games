@@ -69,3 +69,7 @@
 2. MMORPG 다운 게임을 위한 추가적인 기능추가 및 개선 진행중
 
 완성 후 동영상 링크 업로드 예정.
+
+# 2022-01-03 URP로 전환중. UI 개선 및 모바일 최적화 끊임없이 진행중.
+[URP 전환중인 동영상]
+(https://github.com/syoo5953/Unity_Games/blob/main/%EC%9C%A0%EB%8B%88%ED%8B%B0%20%EB%8D%B0%EB%AA%A8%EB%B2%84%EC%A0%84%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9%20%EA%B2%8C%EC%9E%84%20%ED%94%8C%EB%A0%88%EC%9D%B4%EC%98%81%EC%83%81/%EB%AA%A8%EB%B0%94%EC%9D%BC%20RPG%20%EA%B2%8C%EC%9E%84.mp4)

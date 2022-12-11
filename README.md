@@ -95,3 +95,4 @@
 - Scene 넘어갈 때 오브젝트는 가져오지 않되, Money와 같은 정보(만)을 넘길때 = Signleton 패턴 적용(대규모 프로젝트에서는 스크립트를 일일히 다 Sigleton으로 할 순 없지만, 현 프로젝트는 소규모 프로젝트이니 Singleton으로 구현)
 - Find는 프로젝트의 규모가 커질수록 CPU를 많이 잡아먹음. 최대한 Action 콜백 함수 또는 드래그&드랍을 사용하여 오브젝트 참조
 - VFX 사용하여 Magic Orb 구현 및 캐릭터 주변에 Orbit할 수 있도록 장착 시스템 구현
+- TMP 폰트 한글 깨짐 -> Font Asset에서 설정을 맞추어 Generate 후 Font SDF 사용

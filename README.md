@@ -96,3 +96,11 @@
 - Find는 프로젝트의 규모가 커질수록 CPU를 많이 잡아먹음. 최대한 Action 콜백 함수 또는 드래그&드랍을 사용하여 오브젝트 참조
 - VFX 사용하여 Magic Orb 구현 및 캐릭터 주변에 Orbit할 수 있도록 장착 시스템 구현
 - TMP 폰트 한글 깨짐 -> Font Asset에서 설정을 맞추어 Generate 후 Font SDF 사용
+  
+# 2023-08-05 현재 게임 회사에 종사중인 기획 1, 개발 1분과 협업하여 게임 기획 및 개발 준비중
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a3f49d6d-eeda-45e5-b671-a253b18b63f3)
+
+- Steam 게임을 목표.
+- Plastic SCM을 활용한 Unity 공동 작업 구성 완료.
+  

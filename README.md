@@ -101,7 +101,6 @@
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a3f49d6d-eeda-45e5-b671-a253b18b63f3)
 
-- Steam 게임을 목표.
 - Plastic SCM을 활용한 Unity 공동 작업 구성 완료.
 - 기획 단계 완료. 기획자와 좀 더 커뮤니케이션 및 보완 작업 후 업데이트 예정.
 

@@ -97,12 +97,20 @@
 - VFX 사용하여 Magic Orb 구현 및 캐릭터 주변에 Orbit할 수 있도록 장착 시스템 구현
 - TMP 폰트 한글 깨짐 -> Font Asset에서 설정을 맞추어 Generate 후 Font SDF 사용
   
-# 2023-08-05 현재 게임 회사에 종사중인 기획 1, 개발 1분과 협업하여 게임 기획 및 개발 준비중
+# 2023-08-05 게임 기획 및 개발 준비중
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a3f49d6d-eeda-45e5-b671-a253b18b63f3)
 
 - Steam 게임을 목표.
 - Plastic SCM을 활용한 Unity 공동 작업 구성 완료.
 
+## 로비 프로토타입 영상[디자이너 협의 후 UI 변경 예정. 지금은 테스트용.]
+
 ![ezgif-4-b97c0c59f1](https://github.com/syoo5953/Unity_Games/assets/92070358/c07da41b-12ab-4b9d-8951-2e2d1db1d6ee)
-  
+
+## 시각적 심심함 때문에, 나뭇잎이 떨어지는 Particle System 제작
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a4163d18-bbf6-4509-8761-b31496a69349)
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/b8c88bd3-3196-4f70-9d47-8554dede9fdb)
+

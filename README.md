@@ -103,4 +103,6 @@
 
 - Steam 게임을 목표.
 - Plastic SCM을 활용한 Unity 공동 작업 구성 완료.
+
+![ezgif-4-b97c0c59f1](https://github.com/syoo5953/Unity_Games/assets/92070358/c07da41b-12ab-4b9d-8951-2e2d1db1d6ee)
   

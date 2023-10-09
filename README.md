@@ -103,14 +103,13 @@
 
 - Steam 게임을 목표.
 - Plastic SCM을 활용한 Unity 공동 작업 구성 완료.
+- 기획 단계 완료. 기획자와 좀 더 커뮤니케이션 및 보완 작업 후 업데이트 예정.
 
-## 로비 프로토타입 영상[디자이너 협의 후 UI 변경 예정. 지금은 테스트용.]
+### 로비 프로토타입 영상[디자이너 협의 후 UI 변경 예정. 지금은 테스트용.]
 
 ![ezgif-4-b97c0c59f1](https://github.com/syoo5953/Unity_Games/assets/92070358/c07da41b-12ab-4b9d-8951-2e2d1db1d6ee)
 
-## 시각적 심심함 때문에, 나뭇잎이 떨어지는 Particle System 제작
+### 시각적 심심함 때문에, 나뭇잎이 떨어지는 Particle System 제작
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a4163d18-bbf6-4509-8761-b31496a69349)
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/b8c88bd3-3196-4f70-9d47-8554dede9fdb)
 

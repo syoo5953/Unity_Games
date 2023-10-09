@@ -97,7 +97,7 @@
 - VFX 사용하여 Magic Orb 구현 및 캐릭터 주변에 Orbit할 수 있도록 장착 시스템 구현
 - TMP 폰트 한글 깨짐 -> Font Asset에서 설정을 맞추어 Generate 후 Font SDF 사용
   
-# 2023-08-05 게임 기획 및 개발 준비중
+# 2023-09-05 게임 기획 및 개발 준비중(기획자 2, 디자이너 1, 개발(본인) 1)
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a3f49d6d-eeda-45e5-b671-a253b18b63f3)
 

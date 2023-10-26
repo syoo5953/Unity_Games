@@ -63,32 +63,32 @@
 ##### 포트폴리오 동영상 (링크 접속 후 view raw 클릭)
 
 [포트폴리오용 동영상](https://github.com/syoo5953/Unity_Games/blob/main/%EC%9C%A0%EB%8B%88%ED%8B%B0%20%EB%8D%B0%EB%AA%A8%EB%B2%84%EC%A0%84%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9%20%EA%B2%8C%EC%9E%84%20%ED%94%8C%EB%A0%88%EC%9D%B4%EC%98%81%EC%83%81/(%EB%AA%A8%EB%B0%94%EC%9D%BC%20%EC%A0%84%ED%99%98)%20%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%98%81%EC%83%81%20-%203D%20RPG%20%EA%B2%8C%EC%9E%84.mp4)
-
+</br>
 ### 2021-12-19 부수적인 기능들 구현완료
 1. 라이트 프로빙과 리플렉션 등을 활용한 랜더링 개선
 2. MMORPG 다운 게임을 위한 추가적인 기능추가 및 개선 진행중
 
 완성 후 동영상 링크 업로드 예정.
-
+</br>
 # 2022-01-03 URP로 전환중. UI 개선 및 모바일 최적화 끊임없이 진행중.
 [URP 전환중인 동영상](https://github.com/syoo5953/Unity_Games/blob/main/%EC%9C%A0%EB%8B%88%ED%8B%B0%20%EB%8D%B0%EB%AA%A8%EB%B2%84%EC%A0%84%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9%20%EA%B2%8C%EC%9E%84%20%ED%94%8C%EB%A0%88%EC%9D%B4%EC%98%81%EC%83%81/%EB%AA%A8%EB%B0%94%EC%9D%BC%20RPG%20%EA%B2%8C%EC%9E%84.mp4)
-
+</br>
 # 2022-01-16.
 - 적이 사정거리 안에 들어올 시 가까이 돌진하여 공격
 - 인벤토리 수정
 
 [본격적인 최적화 & 기능구현 시작 동영상](https://github.com/syoo5953/Unity_Games/blob/main/%EC%9C%A0%EB%8B%88%ED%8B%B0%20%EB%8D%B0%EB%AA%A8%EB%B2%84%EC%A0%84%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9%20%EA%B2%8C%EC%9E%84%20%ED%94%8C%EB%A0%88%EC%9D%B4%EC%98%81%EC%83%81/(%EB%AA%A8%EB%B0%94%EC%9D%BC%20%26%20URP%20%EC%A0%84%ED%99%98)%20%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EC%98%81%EC%83%81%20-%203D%20RPG%20%EA%B2%8C%EC%9E%84.mp4)
-
+</br>
 # 2022-02-01 쉐이더 학습중
 - 쉐이더 그래프를 활용한 카둔랜더링 적용 (Is Front Face의 값을 Flip, 외각선의 Thickness 값을 활용)
 
 ![캡처](https://user-images.githubusercontent.com/92070358/151821474-7350168a-cc8d-4463-8fc4-4a341aeb78eb.PNG)
-
+</br>
 # 2022-09-26 기존 RPG 프로젝트 재구축
 - 모바일 전환 시 끊김 현상 지속적으로 발생.
 - Profiler를 통해 랜더링 및 스크립트에서 부하가 걸린다는 것을 파악.
 - 현재까지 쌓인 지식을 토대로 최적화와 개발 동시 진행.
-  
+</br>  
 # 2023-09-05 게임 기획 및 개발 준비중(기획자 2, 디자이너 1, 개발(본인) 1)
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a3f49d6d-eeda-45e5-b671-a253b18b63f3)
@@ -97,11 +97,11 @@
 - 기획 단계 완료. 기획자와 좀 더 커뮤니케이션 및 보완 작업 후 업데이트 예정.
 - 디펜스 게임이니 만큼, 많은 몬스터 spawn 예정. 이를 위한 Object Pooling 사용 예정.
 - 접근성, 종속성, 유일성을 위해 필요한 오브젝트의 한해서 Singleton 스크립트 적용 예정.
-
+</br>
 ### 로비 프로토타입 영상[디자이너 협의 후 UI 변경 예정. 지금은 테스트용.]
 
 ![ezgif-4-b97c0c59f1](https://github.com/syoo5953/Unity_Games/assets/92070358/c07da41b-12ab-4b9d-8951-2e2d1db1d6ee)
-
+</br>
 ### 시각적 심심함 때문에, 나뭇잎이 떨어지는 Particle System 제작
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a4163d18-bbf6-4509-8761-b31496a69349)

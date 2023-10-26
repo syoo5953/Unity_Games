@@ -1,4 +1,7 @@
-# Unity_Game
+Unity_Game
+개인 게임 작업물 레퍼지토리입니다.
+
+3D RPG 게임 (포트폴리오용)
 
 ![캡처](https://user-images.githubusercontent.com/92070358/146652568-a48bc0a8-3289-41b9-85b8-bd58d5381916.PNG)
 

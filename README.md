@@ -119,3 +119,13 @@
 ### 시각적 심심함 때문에, 나뭇잎이 떨어지는 Particle System 제작
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a4163d18-bbf6-4509-8761-b31496a69349)
+
+### Wave system 구현 TEST
+
+![robot](https://github.com/syoo5953/Unity_Games/assets/92070358/adccf73f-7c10-4a06-9952-bde024f0807d)
+
+### 설명
+- CSM AI를 활용하여 2D -> 3D 변환.
+- Mixamo를 통해 3D 리깅 및 애니메이션 추출.
+- Object Pooling을 통해 GC 비용 개선.
+- Singleton 패턴 사용.

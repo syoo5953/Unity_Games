@@ -175,6 +175,8 @@
 
 ![main](https://github.com/syoo5953/Unity_Games/assets/92070358/5f32e995-acdc-482d-8289-436b8f58d79c)
 
+![ezgif-7-3282b53342](https://github.com/syoo5953/Unity_Games/assets/92070358/a9a00165-f5b7-4c8e-a6b1-09a3ba477a2c)
+
 - 공격은 IAttackBehaviour, IDamageable, enum AttackType 등을 구현하여 코드 간결화 및 flexibly extensible하게 구현.
 
 ## 2024-01-23

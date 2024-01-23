@@ -101,7 +101,7 @@
 
 ---
 
-## 2023-09-05 게임 기획 및 개발 준비중(기획자 2, 디자이너 1, 개발(본인) 1)
+## 2023-09-05 게임 기획 및 개발 준비중(기획자 2, 개발(본인) 1)
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a3f49d6d-eeda-45e5-b671-a253b18b63f3)
 
@@ -129,3 +129,57 @@
 - Mixamo를 통해 3D 리깅 및 애니메이션 추출.
 - Object Pooling을 통해 GC 비용 개선.
 - Singleton 패턴 사용.
+
+## 전체적으로 수정. UI는 임시로 사용.
+
+**모든 Scene은 서로 independent하게 구성. Main Scene에서 게임 시작 시 wave system에 문제가 없도록 설계.**
+
+**Hero 및 enemy, 또는 공격 particle 등의 데이터 기획자가 단순하게 수정 가능해야 하므로, 데이터 정보는 csv로 관리. DataManager에서 csv정보를 읽어 로드하도록 구현 완료.(Encryption 작업 예정)**
+
+**새로운 공격 타입, 새로운 enemy 또는 hero 등 flexible하게 추가/제거가 가능하도록 전략패턴등과 같은 design pattern을 최대한 활용.**
+
+**Unity Action 또는 Action events 등을 활용하여 유연한 함수 실행 구현 완료.(Destroy때는 이벤트 구독 취소 필수)**
+
+**스크립트는 최대한 OOP SOLID Principle을 적용. 즉, 각 스크립트는 목적성 및 구별성이 뚜렷해야하며, 유연하게 확장될 수 있어야하고 injection이 가능하게끔 설계!!!**
+
+**수많은 hero와 enemy가 소환되는 defense game에서 물리적 연산을 활용하여(raycast) 적을 targeting하는 것은 비용이 비쌈. 하여 게임 특성 상 OnTrigger Enter/Stay/Exit으로 대체**
+
+![lobby](https://github.com/syoo5953/Unity_Games/assets/92070358/a1dcfc90-b8fc-46d5-9812-440830a48ee2)
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/ddeb1f28-d61b-4562-b901-3b4613cfee7e)
+
+- Visual Effect를 사용하여 반딧불 효과 적용
+  
+### 데이터 로드
+  
+![loading](https://github.com/syoo5953/Unity_Games/assets/92070358/7cb42fd8-a217-4ad7-b96d-9dfe9f6c20fe)
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/532f758f-8637-42ab-8b78-4aca8c98d8ec)
+
+- DataManager에서 Data Load하는 시간을 계산하여 해당 시간과 proportional하게 loading bar 증가.
+- 모든 데이터 로드(최초 1회만 로드) 완료 시 Main Scene으로 전환.
+- Main Scene에서 게임 실행 시에는 lazy load로 데이터 로드.
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/2795a1dc-96a3-4c02-aa79-46e7a5b11da9)
+
+- ScriptableObject HeroData와 EnemyData를 list에 저장.
+
+### Pooling Systems
+
+**예시)**
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/755ba806-7a99-4514-ae91-383e5a756935)
+
+- Pooling system에서 particle, enemy spawn 등을 효율적으로 관리.
+- 게임 퍼포먼스를 고려하여 오브젝트를 미리 생성 후 spawnFromPool(enable), returnToPool(disable)의 방식으로 구현.
+
+![main](https://github.com/syoo5953/Unity_Games/assets/92070358/5f32e995-acdc-482d-8289-436b8f58d79c)
+
+- 공격은 IAttackBehaviour, IDamageable, enum AttackType 등을 구현하여 코드 간결화 및 flexibly extensible하게 구현.
+
+## 2024-01-23
+
+※ Addressable을 사용하여 게임의 로드 속도 향상, build 크기 축소 등의 효율화 작업 진행 예정.
+※ Light probe을 적용할만한 map이 아니지만 고려해볼 만한 사항.
+※ Texture를 optimize하여 빌드 크기 축소화 예정.
+※ 우선 가장 급한건 Model과 UI. 기획자와 같이 만드는 중... 시간이 너무 많이 소요될 시 프리랜서에게 의뢰 예정...

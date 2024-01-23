@@ -130,7 +130,7 @@
 - Object Pooling을 통해 GC 비용 개선.
 - Singleton 패턴 사용.
 
-## 전체적으로 수정. UI는 임시로 사용.
+## 전체적으로 수정. UI 및 모델은 임시로 사용.
 
 **⊙ 모든 Scene은 서로 independent하게 구성. Main Scene에서 게임 시작 시 wave system에 문제가 없도록 설계.**
 

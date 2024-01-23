@@ -132,17 +132,17 @@
 
 ## 전체적으로 수정. UI는 임시로 사용.
 
-**모든 Scene은 서로 independent하게 구성. Main Scene에서 게임 시작 시 wave system에 문제가 없도록 설계.**
+**⊙ 모든 Scene은 서로 independent하게 구성. Main Scene에서 게임 시작 시 wave system에 문제가 없도록 설계.**
 
-**Hero 및 enemy, 또는 공격 particle 등의 데이터 기획자가 단순하게 수정 가능해야 하므로, 데이터 정보는 csv로 관리. DataManager에서 csv정보를 읽어 로드하도록 구현 완료.(Encryption 작업 예정)**
+**⊙ Hero 및 enemy, 또는 공격 particle 등의 데이터 기획자가 단순하게 수정 가능해야 하므로, 데이터 정보는 csv로 관리. DataManager에서 csv정보를 읽어 로드하도록 구현 완료.(Encryption 작업 예정)**
 
-**새로운 공격 타입, 새로운 enemy 또는 hero 등 flexible하게 추가/제거가 가능하도록 전략패턴등과 같은 design pattern을 최대한 활용.**
+**⊙ 새로운 공격 타입, 새로운 enemy 또는 hero 등 flexible하게 추가/제거가 가능하도록 전략패턴등과 같은 design pattern을 최대한 활용.**
 
-**Unity Action 또는 Action events 등을 활용하여 유연한 함수 실행 구현 완료.(Destroy때는 이벤트 구독 취소 필수)**
+**⊙ Unity Action 또는 Action events 등을 활용하여 유연한 함수 실행 구현 완료.(Destroy때는 이벤트 구독 취소 필수)**
 
-**스크립트는 최대한 OOP SOLID Principle을 적용. 즉, 각 스크립트는 목적성 및 구별성이 뚜렷해야하며, 유연하게 확장될 수 있어야하고 injection이 가능하게끔 설계!!!**
+**⊙ 스크립트는 최대한 OOP SOLID Principle을 적용. 즉, 각 스크립트는 목적성 및 구별성이 뚜렷해야하며, 유연하게 확장될 수 있어야하고 injection이 가능하게끔 설계!!!**
 
-**수많은 hero와 enemy가 소환되는 defense game에서 물리적 연산을 활용하여(raycast) 적을 targeting하는 것은 비용이 비쌈. 하여 게임 특성 상 OnTrigger Enter/Stay/Exit으로 대체**
+**⊙ 수많은 hero와 enemy가 소환되는 defense game에서 물리적 연산을 활용하여(raycast) 적을 targeting하는 것은 비용이 비쌈. 하여 게임 특성 상 OnTrigger Enter/Stay/Exit으로 대체**
 
 ![lobby](https://github.com/syoo5953/Unity_Games/assets/92070358/a1dcfc90-b8fc-46d5-9812-440830a48ee2)
 

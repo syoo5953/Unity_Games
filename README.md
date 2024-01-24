@@ -181,7 +181,17 @@
 
 ## 2024-01-23
 
-- Resource폴더에서 자원을 load하는 방식은 너무 비용이 비싸다... Addressable을 사용하여 게임의 로드 속도 향상, build 크기 축소 등의 효율화 작업 진행 예정.
+- Addressable asset 적용:
+    - Resource폴더에서 자원을 load하는 방식은 너무 비용이 비싸다 Addressable을 사용하여 게임의 로드 속도 향상, build 크기 축소 등의 효율화 작업 진행 고려해보기(대규모 프로젝트가 아닌이유로 필수가 아닌 선택일듯 하다. 하지만 훗날 프로젝트의 규모가 커졌을 시 나중에가서 addressable로 전환을 하려면 그게 더 곤욕...).
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/400f23ef-7fdb-4428-8e7f-acd7f3eb69e6)
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a7ee3371-a1c7-4971-9e88-963f77e4c544)
+
+
+**Addressable Asset**
+- Asset bundle의 편의성을 개선하기 위해 등장한 시스템인 만큼 자산의 의존성과 버전관리를 자동화한다. 또한 
+
 - Light probe을 적용할만한 map이 아니지만 고려해볼 만한 사항.
 - Texture를 optimize하여 빌드 크기 축소화 예정.
 - 우선 가장 급한건 Model과 UI. 기획자와 같이 만드는 중... 시간이 너무 많이 소요될 시 프리랜서에게 의뢰 예정...

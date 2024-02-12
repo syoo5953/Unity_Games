@@ -195,3 +195,20 @@
 - Light probe을 적용할만한 map이 아니지만 고려해볼 만한 사항.
 - Texture를 optimize하여 빌드 크기 축소화 예정.
 - 우선 가장 급한건 Model과 UI. 기획자와 같이 만드는 중... 시간이 너무 많이 소요될 시 프리랜서에게 의뢰 예정...
+
+## 2024-02-13
+
+- Addressable Asset 적용 완료.
+- Lightmap and bake 완료.
+- Drawcall 4000 -> 200 낮추기 완료.
+- 옵션 시스템(오디오, 그래픽 등) 적용 완료.
+- CSV to JSON conversion 적용 완료. JSON에 herodata를 추가하면 이에 매칭되는 데이터(attack, skill, hp, golds)등 자동 load. 비개발자도 flexible하게 데이터 수정 가능.
+- 히어로 소환 시 dissolve effect 구현 완료.
+- Hero Buy and Sell 시스템 구현 완료.
+
+- Photon을 사용하여 networking 시스템 구현 예정. 서로 다른 국가여도 create room, join room 가능하게 구현할 예정.
+- Warrior 스킬은 Projectile과 다르게 구현이 필요함.
+- 맵, 캐릭터, 몬스터 등 리소스 구할 예정.
+- 컷씬 구현 예정(포탈에서 몬스터 출현, 시민이 놀라며 도망 -> Magician들이 보호막 생성 -> 디펜스 시작)
+
+https://github.com/syoo5953/Unity_Games/assets/92070358/dc5e5ae6-ad3c-4c0e-8cac-d8009ff29ed0

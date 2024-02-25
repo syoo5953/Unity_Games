@@ -212,3 +212,13 @@
 - 컷씬 구현 예정(포탈에서 몬스터 출현, 시민이 놀라며 도망 -> Magician들이 보호막 생성 -> 디펜스 시작)
 
 https://github.com/syoo5953/Unity_Games/assets/92070358/dc5e5ae6-ad3c-4c0e-8cac-d8009ff29ed0
+
+## 2024-02-25
+
+- Navmesh agent AI 시스템 개선 (전방 오브젝트와의 거리, angle 계산 후 발견 시 피해가기)
+- Sell System 구현
+- Status Bar 구현중
+
+https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-ba5e7fa763a8
+
+

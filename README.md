@@ -221,4 +221,73 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/dc5e5ae6-ad3c-4c0e-8cac-
 
 https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-ba5e7fa763a8
 
+<details>
+    <summary>Path Finding 코드 일부 보기</summary>
 
+```
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UnitMovement : MonoBehaviour
+{
+    public Transform target; // Assign your target through the Inspector
+    public float speed = 10f;
+    public float detectionRadius = 5f;
+    [Range(0, 360)]
+    public float detectionAngle = 120f;
+    public LayerMask targetLayer; // Assign the layer of units to detect
+    public float slowingDistance = 5f; // Distance from the target where the unit starts to slow down
+
+    void Update()
+    {
+        MoveTowardsTarget();
+        DetectUnits();
+    }
+
+    void MoveTowardsTarget()
+    {
+        if (target != null)
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+            float rampedSpeed = speed * (distance / slowingDistance);
+            float clippedSpeed = Mathf.Min(rampedSpeed, speed);
+            Vector3 desiredVelocity = (target.position - transform.position).normalized * clippedSpeed;
+            
+            // Simple approach to smooth the movement, could be enhanced with more sophisticated steering behaviors
+            transform.position += desiredVelocity * Time.deltaTime;
+
+            if (distance > 0.5f) // Prevents overshooting the target
+            {
+                transform.forward = desiredVelocity.normalized;
+            }
+        }
+    }
+
+    void DetectUnits()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius, targetLayer);
+        List<Transform> detectedUnits = new List<Transform>();
+
+        foreach (var hit in hits)
+        {
+            Transform target = hit.transform;
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
+
+            // Calculate angle between the forward direction of this unit and the direction to the target
+            float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+
+            // Check if the target is within the detection angle
+            if (angleToTarget < detectionAngle / 2)
+            {
+                detectedUnits.Add(target);
+                // Optional: Implement behavior for detected units, such as avoiding them
+                Debug.Log("Detected unit within angle: " + target.name);
+            }
+        }
+
+        // Optional: Use detectedUnits list for further processing
+    }
+}
+```
+
+</details>

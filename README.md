@@ -225,3 +225,8 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 ### Path Finding 수정(더 견고히!!)
 
 ![path finding](https://github.com/syoo5953/Unity_Games/assets/92070358/9433be00-34de-4aca-908d-22f24ff8e25b)
+
+1. 비켜가기 기능
+2. 뱅글뱅글 도는 이슈 해결(타겟 지점과 근접하다 + 일정 시간이 지났다 하면 agent stop)
+3. avoid detection 각도 계산 넓힘(일전에는 반경이 넓을 시 circling issue가 발생하였지만 2번을 통해 해결)
+4. 서로 밀치는 행위 해결

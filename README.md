@@ -232,3 +232,7 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 4. 서로 밀치는 행위 해결
    
 ![update](https://github.com/syoo5953/Unity_Games/assets/92070358/65a134b4-cb09-4eb8-b742-c9f11cc3a377)
+
+## Floating Island 평탄화
+
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/86f05ebd-0c7b-4175-8756-66011f179f55)

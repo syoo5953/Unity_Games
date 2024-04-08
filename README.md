@@ -243,7 +243,7 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 
 - 스킬은 JSON에서의 스킬 ID와 AOE인지, DIRECT인지 등의 값을 설정해주면 손쉽게 변경할 수 있도록 구조를 짜두었습니다.
 
-## 맵 디자인
+## 맵 완성
 
 ![맵디자인](https://github.com/syoo5953/Unity_Games/assets/92070358/17e28a73-ba33-492a-90ed-9d7dd7b78d36)
 

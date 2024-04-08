@@ -252,3 +252,4 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 - 게임 분위기 변환 (LOL 느낌으로)
 - Matchmaking 구현 (Photon Fusion2 사용 예정)
 - 적절한 Skybox 구하기
+- 디자이너에게 받은 UI 디자인 적용

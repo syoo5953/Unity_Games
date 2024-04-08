@@ -245,9 +245,9 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 
 ![맵디자인](https://github.com/syoo5953/Unity_Games/assets/92070358/17e28a73-ba33-492a-90ed-9d7dd7b78d36)
 
-### 해야 할 일
+### 지금 당장 해야 할 일
 
 - Character Assets 구매
 - Frame 속도 개선 (using profiler)
 - 게임 분위기 변환 (LOL 느낌으로)
-- Multiplayer 구현 (Photon Fusion2 사용 예정)
+- Matchmaking 구현 (Photon Fusion2 사용 예정)

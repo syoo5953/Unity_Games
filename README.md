@@ -236,3 +236,12 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 ## Floating Island 평탄화
 
 ![image](https://github.com/syoo5953/Unity_Games/assets/92070358/86f05ebd-0c7b-4175-8756-66011f179f55)
+
+## 2024-04-09
+
+![update01](https://github.com/syoo5953/Unity_Games/assets/92070358/c8ad3013-15f5-48a0-bdd5-4edde35d9961)
+
+## 맵 디자인
+
+![맵디자인](https://github.com/syoo5953/Unity_Games/assets/92070358/17e28a73-ba33-492a-90ed-9d7dd7b78d36)
+

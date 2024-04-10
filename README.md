@@ -256,5 +256,5 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 - 적절한 Skybox 구하기
 - 디자이너에게 받은 UI 디자인 적용
 
-![Uploading image.png…]()
+![image](https://github.com/syoo5953/Unity_Games/assets/92070358/f9272197-5496-4876-8cec-79686159c316)
 

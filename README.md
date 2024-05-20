@@ -263,4 +263,4 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 
 https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8
 
-
+- bezier curve 기법을 사용하여 소환 이펙트 경로 계산.

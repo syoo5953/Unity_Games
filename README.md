@@ -270,4 +270,5 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-
 https://github.com/syoo5953/Unity_Games/assets/92070358/f15984d7-49bb-471f-9fcd-7feccf038a78
 
 - 멀티플레이 구현중...
+- 카메라 전환 기능 완료
 - 채팅 기능 구현 완료

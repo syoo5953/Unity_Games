@@ -264,3 +264,10 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-
 https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8
 
 - bezier curve 기법을 사용하여 소환 이펙트 경로 계산.
+
+## 2024-07-01
+
+https://github.com/syoo5953/Unity_Games/assets/92070358/f15984d7-49bb-471f-9fcd-7feccf038a78
+
+- 멀티플레이 구현중...
+- 채팅 기능 구현 완료

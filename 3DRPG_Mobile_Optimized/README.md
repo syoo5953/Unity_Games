@@ -127,7 +127,7 @@
 - 디자이너에게 받은 UI 디자인 적용.
 
 ### 베지어 곡선 소환 효과
-![베지어 곡선](https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8)
+![베지어 곡선]([https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8](https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8))
 
 ---
 

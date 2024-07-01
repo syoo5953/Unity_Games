@@ -92,7 +92,9 @@
 ## 2024-02-25
 
 ### AI 및 시스템 개선
-![AI 시스템 개선](https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-ba5e7fa763a8)
+
+https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-ba5e7fa763a8
+
 - **Navmesh Agent AI**: 장애물 회피 기능 개선.
 - **판매 시스템**: 구현 완료.
 - **상태 표시줄**: 구현 중.
@@ -126,7 +128,8 @@
 - 적절한 Skybox 확보.
 - 디자이너에게 받은 UI 디자인 적용.
 
-### 베지어 곡선 소환 효과
+### Beizer Curve 소환 효과
+
 https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8
 
 ---
@@ -134,6 +137,8 @@ https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-
 ## 2024-07-01
 
 ### 멀티플레이 및 카메라 업데이트
-![멀티플레이 및 카메라](https://github.com/syoo5953/Unity_Games/assets/92070358/f15984d7-49bb-471f-9fcd-7feccf038a78)
+
+https://github.com/syoo5953/Unity_Games/assets/92070358/f15984d7-49bb-471f-9fcd-7feccf038a78
+
 - **멀티플레이어**: 구현 중.
 - **카메라 전환**:

@@ -1,4 +1,151 @@
-# Unity_Game 개인 게임 작업물 레퍼지토리.
+# 목차
+1. [2023-09-05: 게임 기획 및 개발](#2023-09-05-게임-기획-및-개발)
+2. [2024-01-23](#2024-01-23)
+3. [2024-02-13](#2024-02-13)
+4. [2024-02-25](#2024-02-25)
+5. [2024-04-09](#2024-04-09)
+6. [2024-07-01](#2024-07-01)
+7. [번외. 첫 포트폴리오 작품](#번외-첫-포트폴리오-작품)
+
+## 2023-09-05: 게임 기획 및 개발 (기획 2, 개발 1(본인))
+### 개요
+- **출시**: 다들 직장인이기에, 개발에 허용되는 시간이 길지 않음. 출시 기간은 2024년 10월 ~ 11월로 예정 중(테스트 기한 한달 포함).
+- **Plastic SCM**: Unity 협업 구성 완료.
+- **기획 단계**: 완료. 기획자와 추가 커뮤니케이션 및 보완 작업 중.
+- **디펜스 게임**: 많은 몬스터 스폰 예정. Object Pooling 사용 예정.
+- **Singleton 패턴**: 접근성, 종속성, 유일성을 위해 적용.
+
+### 로비 프로토타입 영상
+![로비 프로토타입](https://github.com/syoo5953/Unity_Games/assets/92070358/c07da41b-12ab-4b9d-8951-2e2d1db1d6ee)
+*디자이너 협의 후 업데이트 예정. 현재 UI는 테스트용.*
+
+### 시각적 개선
+#### 나뭇잎 떨어지는 파티클 시스템
+![파티클 시스템](https://github.com/syoo5953/Unity_Games/assets/92070358/a4163d18-bbf6-4509-8761-b31496a69349)
+
+### 웨이브 시스템 테스트
+![웨이브 시스템 테스트](https://github.com/syoo5953/Unity_Games/assets/92070358/adccf73f-7c10-4a06-9952-bde024f0807d)
+
+### 설명
+- **CSM AI**: 2D -> 3D 변환에 사용.
+- **Mixamo**: 3D 리깅 및 애니메이션 추출.
+- **Object Pooling**: GC 비용 개선.
+- **Singleton 패턴**: 사용.
+
+### 주요 사항
+- **데이터 관리**: 기획자가 쉽게 수정할 수 있도록 CSV로 데이터 관리. DataManager에서 데이터 로드. 암호화 작업 예정.
+- **디자인 패턴**: 새로운 공격 타입, 적, 히어로 등을 유연하게 추가/제거할 수 있도록 전략 패턴 등 사용.
+- **이벤트 처리**: Unity Action 또는 Action events 사용. 유연한 함수 실행 구현. Destroy 시 이벤트 구독 취소 필수.
+- **OOP 원칙**: 스크립트는 OOP SOLID 원칙 준수. 목적과 구별성 명확, 유연하게 확장 가능, 의존성 주입 가능하도록 설계.
+- **타겟팅**: 비용 효율성을 위해 OnTriggerEnter/Stay/Exit 사용.
+
+### 시각적 효과
+![시각적 효과](https://github.com/syoo5953/Unity_Games/assets/92070358/a1dcfc90-b8fc-46d5-9812-440830a48ee2)
+
+### 데이터 로딩
+![데이터 로딩](https://github.com/syoo5953/Unity_Games/assets/92070358/7cb42fd8-a217-4ad7-b96d-9dfe9f6c20fe)
+- 데이터 로드 시간에 비례하여 로딩 바 증가.
+- 모든 데이터 최초 1회 로드 완료 후 메인 씬으로 전환.
+- 게임 실행 시에는 Lazy Load로 데이터 로드.
+- ScriptableObject HeroData와 EnemyData 리스트에 저장.
+
+### 풀링 시스템
+![풀링 시스템](https://github.com/syoo5953/Unity_Games/assets/92070358/755ba806-7a99-4514-ae91-383e5a756935)
+- 파티클, 적 스폰 등을 효율적으로 관리.
+- 미리 생성된 오브젝트를 스폰하고 풀로 반환.
+
+### 공격 시스템
+![공격 시스템](https://github.com/syoo5953/Unity_Games/assets/92070358/5f32e995-acdc-482d-8289-436b8f58d79c)
+- IAttackBehaviour, IDamageable, enum AttackType 등을 구현하여 코드 간결화 및 유연한 확장성 구현.
+
+---
+
+## 2024-01-23
+
+### Addressable Asset 구현
+![Addressable Assets](https://github.com/syoo5953/Unity_Games/assets/92070358/400f23ef-7fdb-4428-8e7f-acd7f3eb69e6)
+- 로딩 속도 향상 및 빌드 크기 감소를 위해 고려 중.
+- 자산의 의존성과 버전 관리를 자동화.
+- 텍스처 최적화를 통해 빌드 크기 축소 예정.
+- 기획자와 협력하여 모델 및 UI 제작 중. 시간이 많이 소요되면 프리랜서 의뢰 예정.
+
+---
+
+## 2024-02-13
+
+### 업데이트
+- **Addressable Asset**: 적용 완료.
+- **조명**: Lightmap 및 베이킹 완료.
+- **드로우콜 최적화**: 4000에서 200으로 감소.
+- **옵션 시스템**: 오디오, 그래픽 등 옵션 시스템 구현 완료.
+- **CSV to JSON 변환**: 비개발자도 쉽게 데이터 수정 가능.
+- **히어로 효과**: 소환 시 Dissolve Effect 구현 완료.
+- **구매/판매 시스템**: 히어로 구매 및 판매 시스템 구현 완료.
+
+### 향후 계획
+- **네트워킹**: Photon을 사용하여 국가 간 룸 생성 및 참여 기능 구현 예정.
+- **스킬 구현**: Warrior 스킬은 Projectile과 다르게 구현 필요.
+- **리소스 확보**: 맵, 캐릭터, 몬스터 등 리소스 확보 예정.
+- **컷신**: 몬스터 출현, 시민 도망, 마법사 보호막 생성 등 디펜스 시작 장면 구현 예정.
+
+---
+
+## 2024-02-25
+
+### AI 및 시스템 개선
+[AI 및 시스템 개선 비디오](https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-ba5e7fa763a8)
+- **Navmesh Agent AI**: 장애물 회피 기능 개선.
+- **판매 시스템**: 구현 완료.
+- **상태 표시줄**: 구현 중.
+
+### 경로 찾기 개선
+![경로 찾기 개선](https://github.com/syoo5953/Unity_Games/assets/92070358/9433be00-34de-4aca-908d-22f24ff8e25b)
+1. 장애물 회피 기능.
+2. 타겟 지점 근처에서의 회전 이슈 해결.
+3. 탐지 각도 넓힘.
+4. 유닛 밀침 문제 해결.
+
+### 플로팅 아일랜드 평탄화
+![플로팅 아일랜드](https://github.com/syoo5953/Unity_Games/assets/92070358/86f05ebd-0c7b-4175-8756-66011f179f55)
+
+---
+
+## 2024-04-09
+
+### 스킬 시스템
+![스킬 시스템](https://github.com/syoo5953/Unity_Games/assets/92070358/c8ad3013-15f5-48a0-bdd5-4edde35d9961)
+- JSON에서 쉽게 변경할 수 있도록 스킬 구성.
+
+### 맵 완성
+![맵 디자인](https://github.com/syoo5953/Unity_Games/assets/92070358/17e28a73-ba33-492a-90ed-9d7dd7b78d36)
+
+### 당장 해야 할 일
+- 캐릭터 자산 구매.
+- 프레임 속도 개선 (프로파일러 사용).
+- 게임 분위기 변경 (LOL 느낌으로).
+- 매치메이킹 구현 (Photon Fusion2 사용 예정).
+- 적절한 Skybox 확보.
+- 디자이너에게 받은 UI 디자인 적용.
+
+### Beizer Curve 소환 효과
+[Beizer Curve 소환 효과 비디오](https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8)
+
+---
+
+## 2024-07-01
+
+### 멀티플레이 및 카메라 업데이트
+[멀티플레이 및 카메라 업데이트 비디오](https://github.com/syoo5953/Unity_Games/assets/92070358/f15984d7-49bb-471f-9fcd-7feccf038a78)
+- **멀티플레이어**: 구현 중. 렉 보간을 활용하여 스무스한 싱크 구현 완료.
+- **카메라 전환 기능**: 구현 완료
+- **내부 요소 전체적으로 수정**: 멀티플레이 도입에 맞춰 데이터 로드부터 씬의 dependancy 등 전체적으로 수정.
+- **UI 관련 진행상황**: UI는 새로운 외주가 시안 작업 중.
+
+---
+
+## 번외-첫-포트폴리오-작품
+
+### Unity_Game 개인 게임 작업물 레퍼지토리
 
 ![캡처](https://user-images.githubusercontent.com/92070358/146652568-a48bc0a8-3289-41b9-85b8-bd58d5381916.PNG)
 
@@ -7,12 +154,12 @@
 ![캡처2](https://user-images.githubusercontent.com/92070358/146652575-6bd83ce7-bb5d-43dc-89c4-7d1c3aa06737.PNG)
 
 
-## 3D RPG 게임 (포트폴리오용)
+### 3D RPG 게임 (포트폴리오용)
 - **작업기간**: 총 5일
 - **목표**: 취업 준비 시간 외 여유 시간을 활용하여 퀘스트 + 인벤토리 및 몬스터 추가 작업 -> 포톤을 활용하여 멀티플레이 기능 추가.
 - **목표 완수까지 예상 기간**: 2주 내.
 
-### 설명
+#### 설명
 - Enemy Creation에 Object Pooling을 사용하여 가비지컬렉터 비용 최소화.
 - NavMeshAgent를 활용하여 Enemy가 플레이어를 추적.
 - RayCast를 활용하여 플레이어가 Enemy의 사정거리 밖으로 나갈경우 Enemy는 제자리로 돌아가도록 구현.
@@ -27,9 +174,9 @@
 
 ---
 
-## 2021-11-25 모바일 전환 및 연동 완료
+### 2021-11-25 모바일 전환 및 연동 완료
 
-### 설명 
+#### 설명 
 - Joystick으로 대체
 - Enemy Creation에 Object Pooling을 사용하여 가비지컬렉터 비용 최소화.
 - Particle, Canvas 등 Object Pooling 추가 (Instantiate 대신 SetActive(true/false)로 수정)
@@ -42,7 +189,7 @@
 - 인벤토리 추가완료
 - 부활, 힐 등 기타 기능 구현완료
 
-### 추가해야할 사항들
+#### 추가해야할 사항들
 
 1. 보스 구현
 2. 전체적 UI 개선
@@ -50,7 +197,7 @@
 
 ---
 
-## 2021-12-12 부수적인 기능들 구현완료
+### 2021-12-12 부수적인 기능들 구현완료
 
 1. 보스 구현완료 (보스 점프, 스킬 등 행동 추가 예정)
 2. 슬롯 물약 장착기능 완료
@@ -58,7 +205,7 @@
 
 ---
 
-## 2021-12-19 부수적인 기능들 구현완료
+### 2021-12-19 부수적인 기능들 구현완료
 
 1. 스킬 및 물리효과 개선 진행중
 
@@ -68,18 +215,18 @@
 
 ---
 
-## 2021-12-19 부수적인 기능들 구현완료
+### 2021-12-19 부수적인 기능들 구현완료
 1. 라이트 프로빙과 리플렉션 등을 활용한 랜더링 개선
 2. MMORPG 다운 게임을 위한 추가적인 기능추가 및 개선 진행중
 
 완성 후 동영상 링크 업로드 예정.
 
-## 2022-01-03 URP로 전환중. UI 개선 및 모바일 최적화 끊임없이 진행중.
+### 2022-01-03 URP로 전환중. UI 개선 및 모바일 최적화 끊임없이 진행중.
 [URP 전환중인 동영상](https://github.com/syoo5953/Unity_Games/blob/main/%EC%9C%A0%EB%8B%88%ED%8B%B0%20%EB%8D%B0%EB%AA%A8%EB%B2%84%EC%A0%84%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9A%A9%20%EA%B2%8C%EC%9E%84%20%ED%94%8C%EB%A0%88%EC%9D%B4%EC%98%81%EC%83%81/%EB%AA%A8%EB%B0%94%EC%9D%BC%20RPG%20%EA%B2%8C%EC%9E%84.mp4)
 
 ---
 
-## 2022-01-16.
+### 2022-01-16.
 - 적이 사정거리 안에 들어올 시 가까이 돌진하여 공격
 - 인벤토리 수정
 
@@ -87,188 +234,14 @@
 
 ---
 
-## 2022-02-01 쉐이더 학습중
+### 2022-02-01 쉐이더 학습중
 - 쉐이더 그래프를 활용한 카둔랜더링 적용 (Is Front Face의 값을 Flip, 외각선의 Thickness 값을 활용)
 
 ![캡처](https://user-images.githubusercontent.com/92070358/151821474-7350168a-cc8d-4463-8fc4-4a341aeb78eb.PNG)
 
 ---
 
-## 2022-09-26 기존 RPG 프로젝트 재구축
+### 2022-09-26 기존 RPG 프로젝트 재구축
 - 모바일 전환 시 끊김 현상 지속적으로 발생.
 - Profiler를 통해 랜더링 및 스크립트에서 부하가 걸린다는 것을 파악.
 - 현재까지 쌓인 지식을 토대로 최적화와 개발 동시 진행.
-
----
-
-## 2023-09-05 게임 기획 및 개발 준비중(기획자 2, 개발(본인) 1)
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a3f49d6d-eeda-45e5-b671-a253b18b63f3)
-
-- Plastic SCM을 활용한 Unity 공동 작업 구성 완료.
-- 기획 단계 완료. 기획자와 좀 더 커뮤니케이션 및 보완 작업 후 업데이트 예정.
-- 디펜스 게임이니 만큼, 많은 몬스터 spawn 예정. 이를 위한 Object Pooling 사용 예정.
-- 접근성, 종속성, 유일성을 위해 필요한 오브젝트의 한해서 Singleton 스크립트 적용 예정.
-
-
-### 로비 프로토타입 영상[디자이너 협의 후 UI 변경 예정. 지금은 테스트용.]
-
-![ezgif-4-b97c0c59f1](https://github.com/syoo5953/Unity_Games/assets/92070358/c07da41b-12ab-4b9d-8951-2e2d1db1d6ee)
-
-
-### 시각적 심심함 때문에, 나뭇잎이 떨어지는 Particle System 제작
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a4163d18-bbf6-4509-8761-b31496a69349)
-
-### Wave system 구현 TEST
-
-![robot](https://github.com/syoo5953/Unity_Games/assets/92070358/adccf73f-7c10-4a06-9952-bde024f0807d)
-
-### 설명
-- CSM AI를 활용하여 2D -> 3D 변환.
-- Mixamo를 통해 3D 리깅 및 애니메이션 추출.
-- Object Pooling을 통해 GC 비용 개선.
-- Singleton 패턴 사용.
-
-## 전체적으로 수정. UI 및 모델은 임시로 사용.
-
-**⊙ 모든 Scene은 서로 independent하게 구성. Main Scene에서 게임 시작 시 wave system에 문제가 없도록 설계.**
-
-**⊙ Hero 및 enemy, 또는 공격 particle 등의 데이터 기획자가 단순하게 수정 가능해야 하므로, 데이터 정보는 csv로 관리. DataManager에서 csv정보를 읽어 로드하도록 구현 완료.(Encryption 작업 예정)**
-
-**⊙ 새로운 공격 타입, 새로운 enemy 또는 hero 등 flexible하게 추가/제거가 가능하도록 전략패턴등과 같은 design pattern을 최대한 활용.**
-
-**⊙ Unity Action 또는 Action events 등을 활용하여 유연한 함수 실행 구현 완료.(Destroy때는 이벤트 구독 취소 필수)**
-
-**⊙ 스크립트는 최대한 OOP SOLID Principle을 적용. 즉, 각 스크립트는 목적성 및 구별성이 뚜렷해야하며, 유연하게 확장될 수 있어야하고 injection이 가능하게끔 설계!!!**
-
-**⊙ 수많은 hero와 enemy가 소환되는 defense game에서 물리적 연산을 활용하여(raycast) 적을 targeting하는 것은 비용이 비쌈. 하여 게임 특성 상 OnTrigger Enter/Stay/Exit으로 대체**
-
-![lobby](https://github.com/syoo5953/Unity_Games/assets/92070358/a1dcfc90-b8fc-46d5-9812-440830a48ee2)
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/ddeb1f28-d61b-4562-b901-3b4613cfee7e)
-
-- Visual Effect를 사용하여 반딧불 효과 적용
-  
-### 데이터 로드
-  
-![loading](https://github.com/syoo5953/Unity_Games/assets/92070358/7cb42fd8-a217-4ad7-b96d-9dfe9f6c20fe)
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/532f758f-8637-42ab-8b78-4aca8c98d8ec)
-
-- DataManager에서 Data Load하는 시간을 계산하여 해당 시간과 proportional하게 loading bar 증가.
-- 모든 데이터 로드(최초 1회만 로드) 완료 시 Main Scene으로 전환.
-- Main Scene에서 게임 실행 시에는 lazy load로 데이터 로드.
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/2795a1dc-96a3-4c02-aa79-46e7a5b11da9)
-
-- ScriptableObject HeroData와 EnemyData를 list에 저장.
-
-### Pooling Systems
-
-**예시)**
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/755ba806-7a99-4514-ae91-383e5a756935)
-
-- Pooling system에서 particle, enemy spawn 등을 효율적으로 관리.
-- 게임 퍼포먼스를 고려하여 오브젝트를 미리 생성 후 spawnFromPool(enable), returnToPool(disable)의 방식으로 구현.
-
-![main](https://github.com/syoo5953/Unity_Games/assets/92070358/5f32e995-acdc-482d-8289-436b8f58d79c)
-
-![ezgif-7-3282b53342](https://github.com/syoo5953/Unity_Games/assets/92070358/a9a00165-f5b7-4c8e-a6b1-09a3ba477a2c)
-
-- 공격은 IAttackBehaviour, IDamageable, enum AttackType 등을 구현하여 코드 간결화 및 flexibly extensible하게 구현.
-
-## 2024-01-23
-
-- Addressable asset 적용:
-    - Resource폴더에서 자원을 load하는 방식은 너무 비용이 비싸다 Addressable을 사용하여 게임의 로드 속도 향상, build 크기 축소 등의 효율화 작업 진행 고려해보기(대규모 프로젝트가 아닌이유로 필수가 아닌 선택일듯 하다. 하지만 훗날 프로젝트의 규모가 커졌을 시 나중에가서 addressable로 전환을 하려면 그게 더 곤욕...).
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/400f23ef-7fdb-4428-8e7f-acd7f3eb69e6)
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/a7ee3371-a1c7-4971-9e88-963f77e4c544)
-
-
-**Addressable Asset**
-- Asset bundle의 편의성을 개선하기 위해 등장한 시스템인 만큼 자산의 의존성과 버전관리를 자동화한다. 또한 
-
-- Light probe을 적용할만한 map이 아니지만 고려해볼 만한 사항.
-- Texture를 optimize하여 빌드 크기 축소화 예정.
-- 우선 가장 급한건 Model과 UI. 기획자와 같이 만드는 중... 시간이 너무 많이 소요될 시 프리랜서에게 의뢰 예정...
-
-## 2024-02-13
-
-- Addressable Asset 적용 완료.
-- Lightmap and bake 완료.
-- Drawcall 4000 -> 200 낮추기 완료.
-- 옵션 시스템(오디오, 그래픽 등) 적용 완료.
-- CSV to JSON conversion 적용 완료. JSON에 herodata를 추가하면 이에 매칭되는 데이터(attack, skill, hp, golds)등 자동 load. 비개발자도 flexible하게 데이터 수정 가능.
-- 히어로 소환 시 dissolve effect 구현 완료.
-- Hero Buy and Sell 시스템 구현 완료.
-
-- Photon을 사용하여 networking 시스템 구현 예정. 서로 다른 국가여도 create room, join room 가능하게 구현할 예정.
-- Warrior 스킬은 Projectile과 다르게 구현이 필요함.
-- 맵, 캐릭터, 몬스터 등 리소스 구할 예정.
-- 컷씬 구현 예정(포탈에서 몬스터 출현, 시민이 놀라며 도망 -> Magician들이 보호막 생성 -> 디펜스 시작)
-
-https://github.com/syoo5953/Unity_Games/assets/92070358/dc5e5ae6-ad3c-4c0e-8cac-d8009ff29ed0
-
-## 2024-02-25
-
-- Navmesh agent AI 시스템 개선 (전방 오브젝트와의 거리, angle 계산 후 발견 시 피해가기)
-- Sell System 구현
-- Status Bar 구현중
-
-https://github.com/syoo5953/Unity_Games/assets/92070358/307ae11f-b395-43df-b34f-ba5e7fa763a8
-
-
-### Path Finding 수정(더 견고히!!)
-
-![path finding](https://github.com/syoo5953/Unity_Games/assets/92070358/9433be00-34de-4aca-908d-22f24ff8e25b)
-
-1. 비켜가기 기능
-2. unit이 다른 unit에 붙어 빙글빙글 도는 이슈 해결(타겟 지점과 근접하다 + 일정 시간이 지났다 하면 agent stop)
-3. avoid detection 각도 계산 넓힘(일전에는 반경이 넓을 시 circling issue가 발생하였지만 2번을 통해 해결)
-4. 서로 밀치는 행위 해결
-   
-![update](https://github.com/syoo5953/Unity_Games/assets/92070358/65a134b4-cb09-4eb8-b742-c9f11cc3a377)
-
-## Floating Island 평탄화
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/86f05ebd-0c7b-4175-8756-66011f179f55)
-
-## 2024-04-09
-
-![update01](https://github.com/syoo5953/Unity_Games/assets/92070358/c8ad3013-15f5-48a0-bdd5-4edde35d9961)
-
-- 스킬은 JSON에서의 스킬 ID와 AOE인지, DIRECT인지 등의 값을 설정해주면 손쉽게 변경할 수 있도록 구조를 짜두었습니다.
-
-## 맵 완성
-
-![맵디자인](https://github.com/syoo5953/Unity_Games/assets/92070358/17e28a73-ba33-492a-90ed-9d7dd7b78d36)
-
-### 지금 당장 해야 할 일
-
-- Character Assets 구매
-- Frame 속도 개선 (using profiler)
-- 게임 분위기 변환 (LOL 느낌으로)
-- Matchmaking 구현 (Photon Fusion2 사용 예정)
-- 적절한 Skybox 구하기
-- 디자이너에게 받은 UI 디자인 적용
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/f9272197-5496-4876-8cec-79686159c316)
-
-![image](https://github.com/syoo5953/Unity_Games/assets/92070358/0da6098e-a23d-45d8-a0f7-76061019f32f)
-
-
-https://github.com/syoo5953/Unity_Games/assets/92070358/7b1cc578-fdf4-45c2-a342-2116c720b0c8
-
-- bezier curve 기법을 사용하여 소환 이펙트 경로 계산.
-
-## 2024-07-01
-
-https://github.com/syoo5953/Unity_Games/assets/92070358/f15984d7-49bb-471f-9fcd-7feccf038a78
-
-- 멀티플레이 구현중...
-- 카메라 전환 기능 완료
-- 채팅 기능 구현 완료

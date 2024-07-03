@@ -37,7 +37,7 @@
 - **디자인 패턴**: 새로운 공격 타입, 적, 히어로 등을 유연하게 추가/제거할 수 있도록 전략 패턴 등 사용.
 - **이벤트 처리**: Unity Action 또는 Action events 사용. 유연한 함수 실행 구현. Destroy 시 이벤트 구독 취소 필수.
 - **OOP 원칙**: 스크립트는 OOP SOLID 원칙 준수. 목적과 구별성 명확, 유연하게 확장 가능, 의존성 주입 가능하도록 설계.
-- **타겟팅**: 비용 효율성을 위해 OnTriggerEnter/Stay/Exit 사용.
+- **타겟팅**: 비용 효율성을 위해 OnTriggerEnter/Stay/Exit에서 Physics.OverlapSphere로 대체.
 
 ### 시각적 효과
 ![시각적 효과](https://github.com/syoo5953/Unity_Games/assets/92070358/a1dcfc90-b8fc-46d5-9812-440830a48ee2)

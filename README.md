@@ -215,8 +215,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
         ObjectPoolManager.Instance.ReturnObjectToPool(obj);
     }
 }
-</details>
 ```
+</details>
 ---
 
 ## 번외-첫-포트폴리오-작품

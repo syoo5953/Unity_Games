@@ -153,6 +153,70 @@
 - 몬스터 및 영웅 에셋 추가중 (구현을 잘 해놓은 덕분에 추가하는데 애니메이션(이미 있을 경우), 공격, 스킬 포함 개당 2~3분정도 소요)
 - 영상은 조만간 업로드 예정!
 
+UpgradeManager 추가
+<details>
+  <summary>
+    using System;
+using System.Collections;
+using System.Linq;
+using UnityEngine;
+
+public class UpgradeManager : Singleton<UpgradeManager>
+{
+    public static int MagicianLevel { get; private set; } = 0;
+    public static int ArcherLevel { get; private set; } = 0;
+    public static int WarriorLevel { get; private set; } = 0;
+
+    public static event Action<HeroType> OnHeroLevelUp;
+
+    public void UpgradeHeroes(HeroType heroType)
+    {
+        switch (heroType)
+        {
+            case HeroType.Magician:
+                MagicianLevel++;
+                break;
+            case HeroType.Archer:
+                ArcherLevel++;
+                break;
+            case HeroType.Warrior:
+                WarriorLevel++;
+                break;
+        }
+
+        OnHeroLevelUp?.Invoke(heroType);
+        
+        var heroesToUpgrade = UnitSelection.Instance.unitList
+            .Where(hero => hero.GetComponent<HeroController>().heroData.heroType == heroType)
+            .ToList();
+
+        foreach (var hero in heroesToUpgrade)
+        {
+            var levelUpEffect = ObjectPoolManager.Instance.GetObjectFromPool("levelUp", hero.transform.position, Quaternion.identity);
+            StartCoroutine(ReturnObjectToPoolAfterDelay(levelUpEffect, 1f));
+        }
+    }
+
+    public static int GetHeroLevel(HeroType heroType)
+    {
+        return heroType switch
+        {
+            HeroType.Magician => MagicianLevel,
+            HeroType.Archer => ArcherLevel,
+            HeroType.Warrior => WarriorLevel,
+            _ => 0
+        };
+    }
+
+    private IEnumerator ReturnObjectToPoolAfterDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ObjectPoolManager.Instance.ReturnObjectToPool(obj);
+    }
+}
+
+  </summary>
+</details>
 ---
 
 ## 번외-첫-포트폴리오-작품

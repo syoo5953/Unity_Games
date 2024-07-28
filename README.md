@@ -144,7 +144,8 @@
 - **UI 관련 진행상황**: UI는 새로운 외주가 시안 작업 중.
 
 <details>
-  <summary>HeroController Base 클래스 -> 각 Hero 타입 별 클래스 코드</summary>
+  <summary>UpgradeManager 코드 추가</summary>
+
 ```csharp
 using Photon.Pun;
 using UnityEngine;

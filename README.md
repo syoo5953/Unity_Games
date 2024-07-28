@@ -143,6 +143,98 @@
 - **내부 요소 전체적으로 수정**: 멀티플레이 도입에 맞춰 데이터 로드부터 씬의 dependancy 등 전체적으로 수정.
 - **UI 관련 진행상황**: UI는 새로운 외주가 시안 작업 중.
 
+<details>
+  <summary>HeroController Base 클래스 -> 각 Hero 타입 별 클래스 코드</summary>
+using Photon.Pun;
+using UnityEngine;
+
+public class MageHero : HeroController
+{
+    private float lastAttackTime = 0;
+    private AudioManager audioManager;
+    private PhotonView targetPhotonView;
+    private ParticleData baseAttackData;
+    private ParticleData skillAttackData;
+
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
+        baseAttackData = DataLoader.Instance.GetParticleData(baseAttack);
+        skillAttackData = DataLoader.Instance.GetParticleData(skillAttack);
+    }
+
+    protected override void TryAttack()
+    {
+        if (mpSlider != null && mpSlider.value >= 1.0f)
+        {
+            FaceTarget(true);
+            LaunchAttack(true);
+            mpSlider.value = 0;
+            skillChargeTime = 0;
+        }
+        else if (Time.time - lastAttackTime >= 1 / attackSpeed)
+        {
+            FaceTarget(true);
+            LaunchAttack(false);
+            lastAttackTime = Time.time;
+        }
+    }
+
+    private void LaunchAttack(bool isSkill)
+    {
+        if (target != null)
+        {
+            targetPhotonView = target.GetComponent<PhotonView>();
+            int targetID = targetPhotonView.ViewID;
+            if (isSkill)
+            {
+                FireSkill(targetID);
+                photonView.RPC("FireSkill", RpcTarget.Others, targetID);
+                audioManager.Play(skillAttackAudio);
+            }
+            else
+            {
+                Fire(targetID);
+                photonView.RPC("Fire", RpcTarget.Others, targetID);
+                audioManager.Play(baseAttackAudio);
+            }
+        }
+    }
+
+    [PunRPC]
+    private void Fire(int targetID)
+    {
+        ExecuteFire(targetID, baseAttackData, baseAttackDamage);
+    }
+
+    [PunRPC]
+    private void FireSkill(int targetID)
+    {
+        ExecuteFire(targetID, skillAttackData, skillAttackDamage);
+    }
+
+    private void ExecuteFire(int targetID, ParticleData attackData, float damage)
+    {
+        PhotonView targetPhotonView = PhotonView.Find(targetID);
+        if (targetPhotonView != null)
+        {
+            Transform targetTransform = targetPhotonView.transform;
+            if (attackData != null)
+            {
+                animator.ResetTrigger("Attack");
+                animator.SetTrigger("Attack");
+                animator.SetFloat("AttackSpeed", attackSpeed);
+
+                ParticleExecutor.ExecuteParticle(damage, attackRange, transform, targetTransform, attackData);
+            }
+        }
+    }
+}
+```csharp
+
+```
+</details>
+
 ---
 
 ## 2024-07-25

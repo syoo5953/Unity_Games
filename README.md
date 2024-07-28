@@ -145,6 +145,7 @@
 
 <details>
   <summary>HeroController Base 클래스 -> 각 Hero 타입 별 클래스 코드</summary>
+```csharp
 using Photon.Pun;
 using UnityEngine;
 
@@ -230,8 +231,6 @@ public class MageHero : HeroController
         }
     }
 }
-```csharp
-
 ```
 </details>
 

@@ -317,9 +317,12 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
 ## 2024-08-01
 https://github.com/user-attachments/assets/2646c33d-39ab-4b00-9dad-9fda6b2b992b
+
+![image](https://github.com/user-attachments/assets/6e4cdb3b-5d9b-41ae-8f6f-7be9376b1c32)
 - Drop Gemstone 추가
 - 데미지 팝업 추가
 - 캐릭터 및 스킬 계속 추가중...
+
 
 ## 번외-첫-포트폴리오-작품
 

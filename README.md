@@ -343,7 +343,8 @@ https://github.com/user-attachments/assets/ecdab700-fcc3-4607-942d-1f9badb5f117
 
 <details>
   <summary>GameManager 멀티플레이 로직 수정</summary>
-  ```csharp
+
+```csharp
 public class GameManager : MonoBehaviourPunCallbacks
 {
     public static GameManager Instance { get; private set; }

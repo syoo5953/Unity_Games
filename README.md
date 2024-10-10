@@ -342,73 +342,232 @@ https://github.com/user-attachments/assets/ecdab700-fcc3-4607-942d-1f9badb5f117
 - 공격 로직 전부 수정
 
 <details>
-  <summary>AttackExecutor 코드 추가</summary>
-
-```csharp
-using System.Linq;
-using UnityEngine;
-
-public static class AttackExecutor
+  <summary>GameManager 멀티플레이 로직 수정</summary>
+  
+public class GameManager : MonoBehaviourPunCallbacks
 {
-    // 기본 근거리 어택 트리거 함수
-    public static void ExecuteMelee(BaseAttackData attackData, Transform owner, Transform target)
-    {
-        if (target == null || attackData == null)
-        {
-            Debug.LogError("Invalid target or attack data for melee attack.");
-            return;
-        }
+    public static GameManager Instance { get; private set; }
+    public static PlayerManager PlayerManager { get; private set; }
 
-        var enemy = target.GetComponent<EnemyAI>();
-        if (enemy != null)
-        {
-            float damageToApply = attackData.damage;
-            enemy.TakeDamage(damageToApply);
-        }
+    ... variables ...
+
+    private UIManager uiManager;
+
+    public const string PLAYER_READY = "IsPlayerReady";
+    public const string PLAYER_LOADED_LEVEL = "PlayerLoadedLevel";
+    public const string PLAYER_KILLS = "PlayerKills";
+
+    private void Awake()
+    {
+        Instance = this;
+        uiManager = FindObjectOfType<UIManager>();
     }
-    // 기본 원거리 어택 트리거 함수
-    public static void ExecuteAttack(BaseAttackData attackData, Transform owner, Transform target, float damage, float attackRange, SideEffectData sideEffect = null)
-    {
-        if (attackData == null || attackData.projectilePrefab == null)
-        {
-            Debug.LogError("Invalid base attack data or missing projectile prefab.");
-            return;
-        }
 
-        if (sideEffect != null && sideEffect.effectType == SideEffectType.MultiProjectile)
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        CountdownTimer.OnCountdownTimerHasExpired += OnCountdownTimerIsExpired;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        CountdownTimer.OnCountdownTimerHasExpired -= OnCountdownTimerIsExpired;
+    }
+
+    private void Start()
+    {
+        InitializeGame();
+    }
+
+    private void InitializeGame()
+    {
+        if (PhotonNetwork.IsConnectedAndReady)
         {
-            ExecuteSideEffect(sideEffect, owner, target, damage, attackRange);
+            if (PhotonNetwork.InRoom)
+            {
+                PlayerIndexHelper.Instance.InitializePlayerIndexMap();
+                EnvironmentSettings.Instance.InitializeSettings();
+                GameObject playerObj = PhotonNetwork.Instantiate("PlayerPrefab", Vector3.zero, Quaternion.identity);
+                PlayerIndexHelper.Instance.AddPlayerInputManager(playerObj, PhotonNetwork.LocalPlayer.ActorNumber);
+                PlayerManager = FindLocalPlayerManager();
+                PlayerManager.Initialize();
+            }
+            else
+            {
+                Debug.LogWarning("Player is not in a room.");
+            }
         }
         else
         {
-            attackData.ExecuteAttack(owner, target, damage, attackRange, sideEffect);
+            Debug.LogWarning("Client is not connected and ready.");
+        }
+
+        StartCoroutine(FadeAndStartCountdown());
+    }
+
+    private IEnumerator FadeAndStartCountdown()
+    {
+        yield return new WaitForSeconds(1);
+        FadeManager.Instance.FadeOut(() =>
+        {
+            PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { PLAYER_LOADED_LEVEL, true }, { "IsReady", false } });
+        });
+
+        // Fadeout 끝날때까지 기다리기...
+        yield return new WaitUntil(() => !FadeManager.Instance.IsFading);
+        int playerIndex = PlayerIndexHelper.Instance.GetPlayerIndex(PhotonNetwork.LocalPlayer.ActorNumber);
+        CutsceneManager.Instance.StartCutscene(playerIndex);
+    }
+
+    public override void OnLeftRoom()
+    {
+        SpawnManager.Instance.StopSpawningEnemies();
+        PhotonNetwork.Disconnect();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        otherPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "IsReady", false } });
+        EnvironmentSettings.Instance.OnPlayerLeft(PlayerIndexHelper.Instance.GetPlayerIndex(otherPlayer.ActorNumber));
+        PlayerManager = FindLocalPlayerManager();
+        PhotonNetwork.DestroyPlayerObjects(otherPlayer);
+        UIManager.Instance.UpdateReadyIcons(otherPlayer);
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        Debug.LogWarning($"OnDisconnected() was called by PUN with reason {cause}");
+
+        if (this.CanRecoverFromDisconnect(cause))
+        {
+            this.Recover();
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("LobbyScene");
         }
     }
 
-    // 스킬 어택 트리거 함수
-    public static void ExecuteSkill(SkillData skillData, Transform owner, Transform target, float damage, float attackRange, int actorNumber)
+    private bool CanRecoverFromDisconnect(DisconnectCause cause)
     {
-        if (skillData == null || skillData.skillEffectPrefab == null)
+        switch (cause)
         {
-            Debug.LogError("Invalid skill data or missing skill effect prefab.");
-            return;
+            case DisconnectCause.Exception:
+            case DisconnectCause.ServerTimeout:
+            case DisconnectCause.ClientTimeout:
+            case DisconnectCause.DisconnectByServerLogic:
+            case DisconnectCause.DisconnectByServerReasonUnknown:
+                return true;
+            default:
+                return false;
         }
-
-        skillData.ExecuteSkill(owner, target, damage, attackRange, actorNumber);
     }
 
-    // SideEffect 어택 트리거 함수 GainGold, FreezeNearby, SlowDown
-    public static void ExecuteSideEffect(SideEffectData sideEffectData, Transform owner, Transform target, float damage, float attackRange)
+    private void Recover()
     {
-        if (sideEffectData == null)
+        if (!PhotonNetwork.ReconnectAndRejoin())
         {
-            Debug.LogError("Invalid side effect data.");
-            return;
+            Debug.LogError("ReconnectAndRejoin failed, trying Reconnect...");
+            if (!PhotonNetwork.Reconnect())
+            {
+                Debug.LogError("Reconnect failed, trying ConnectUsingSettings...");
+                if (!PhotonNetwork.ConnectUsingSettings())
+                {
+                    Debug.LogError("ConnectUsingSettings failed");
+                    // Handle failure to reconnect or connect
+                }
+            }
+        }
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+    {
+        if (!PhotonNetwork.IsMasterClient) return;
+
+        int startTimestamp;
+        bool startTimeIsSet = CountdownTimer.TryGetStartTime(out startTimestamp);
+        if (changedProps.ContainsKey(PLAYER_LOADED_LEVEL))
+        {
+            if (CheckAllPlayerLoadedLevel())
+            {
+                if (!startTimeIsSet)
+                {
+                    CountdownTimer.SetStartTime();
+                }
+            }
+            else
+            {
+                countdownText.text = "Waiting for other players...";
+            }
+        }
+    }
+
+    private bool CheckAllPlayerLoadedLevel()
+    {
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            object playerLoadedLevel;
+
+            if (p.CustomProperties.TryGetValue(PLAYER_LOADED_LEVEL, out playerLoadedLevel))
+            {
+                if ((bool)playerLoadedLevel)
+                {
+                    continue;
+                }
+            }
+
+            return false;
         }
 
-        sideEffectData.ExecuteSideEffect(owner, target, damage, attackRange);  // Call ExecuteSideEffect method to apply the effect.
+        return true;
+    }
+
+    private void OnCountdownTimerIsExpired()
+    {
+        SpawnManager.Instance.StartSpawningEnemies();
+    }
+
+    public void LeaveRoom()
+    {
+        Application.targetFrameRate = 30;
+        Debug.Log("[Clicked Quit] Setting FrameRate to 30");
+        AudioManager.Instance.StopAllSounds();
+        PhotonNetwork.LeaveRoom();
+    }
+
+    private PlayerManager FindLocalPlayerManager()
+    {
+        foreach (PlayerManager playerManager in FindObjectsOfType<PlayerManager>())
+        {
+            if (playerManager.photonView.IsMine)
+            {
+                return playerManager;
+            }
+        }
+        return null;
+    }
+
+    public void CheckIfAllPlayersReady()
+    {
+        if (PhotonNetwork.PlayerList.All(player => player.CustomProperties.ContainsKey("IsReady") && (bool)player.CustomProperties["IsReady"]))
+        {
+            SetGameSpeed(2.0f);
+        }
+        else
+        {
+            SetGameSpeed(1.0f);
+        }
+    }
+
+    private void SetGameSpeed(float speed)
+    {
+        gameSpeed = speed;
+        Time.timeScale = gameSpeed;
     }
 }
+```csharp
+
 ```
 </details>
 

@@ -339,7 +339,78 @@ https://github.com/user-attachments/assets/ecdab700-fcc3-4607-942d-1f9badb5f117
 - 멀티플레이 안정화 작업 완료
 - 스킬 구현 완료(Legendary등급은 3번 공격 시 Side Effect 발동)
 - 잔버그 수정
+- 공격 로직 전부 수정
 
+<details>
+  <summary>AttackExecutor 코드 추가</summary>
+
+```csharp
+using System.Linq;
+using UnityEngine;
+
+public static class AttackExecutor
+{
+    // 기본 근거리 어택 트리거 함수
+    public static void ExecuteMelee(BaseAttackData attackData, Transform owner, Transform target)
+    {
+        if (target == null || attackData == null)
+        {
+            Debug.LogError("Invalid target or attack data for melee attack.");
+            return;
+        }
+
+        var enemy = target.GetComponent<EnemyAI>();
+        if (enemy != null)
+        {
+            float damageToApply = attackData.damage;
+            enemy.TakeDamage(damageToApply);
+        }
+    }
+    // 기본 원거리 어택 트리거 함수
+    public static void ExecuteAttack(BaseAttackData attackData, Transform owner, Transform target, float damage, float attackRange, SideEffectData sideEffect = null)
+    {
+        if (attackData == null || attackData.projectilePrefab == null)
+        {
+            Debug.LogError("Invalid base attack data or missing projectile prefab.");
+            return;
+        }
+
+        if (sideEffect != null && sideEffect.effectType == SideEffectType.MultiProjectile)
+        {
+            ExecuteSideEffect(sideEffect, owner, target, damage, attackRange);
+        }
+        else
+        {
+            attackData.ExecuteAttack(owner, target, damage, attackRange, sideEffect);
+        }
+    }
+
+    // 스킬 어택 트리거 함수
+    public static void ExecuteSkill(SkillData skillData, Transform owner, Transform target, float damage, float attackRange, int actorNumber)
+    {
+        if (skillData == null || skillData.skillEffectPrefab == null)
+        {
+            Debug.LogError("Invalid skill data or missing skill effect prefab.");
+            return;
+        }
+
+        skillData.ExecuteSkill(owner, target, damage, attackRange, actorNumber);
+    }
+
+    // SideEffect 어택 트리거 함수 GainGold, FreezeNearby, SlowDown
+    public static void ExecuteSideEffect(SideEffectData sideEffectData, Transform owner, Transform target, float damage, float attackRange)
+    {
+        if (sideEffectData == null)
+        {
+            Debug.LogError("Invalid side effect data.");
+            return;
+        }
+
+        sideEffectData.ExecuteSideEffect(owner, target, damage, attackRange);  // Call ExecuteSideEffect method to apply the effect.
+    }
+}
+```
+</details>
 
 ## 번외-첫-포트폴리오-작품
 

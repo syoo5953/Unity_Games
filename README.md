@@ -9,7 +9,8 @@
 8. [2024-08-01](#2024-08-01)
 9. [2024-08-10](#2024-08-10)
 10. [2024-08-29](#2024-08-29)
-11. [번외. 첫 포트폴리오 작품](#번외-첫-포트폴리오-작품)
+11. [2024-10-03](#2024-10-03)
+12. [번외. 첫 포트폴리오 작품](#번외-첫-포트폴리오-작품)
 
 ## 2024-04-05: 게임 기획 및 개발
 ### 개요
@@ -571,6 +572,17 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 ```
 </details>
+
+## 2024-10-03
+![image](https://github.com/user-attachments/assets/4fc271c5-56a4-4f12-834c-e1d09e432352)
+
+![image](https://github.com/user-attachments/assets/fa6c32dd-d685-4aed-8535-64372398d6ae)
+
+- 데이터 수정용 웹사이트 개발 완료 (Node Express, ReactJs, 웹서버는 nginx를 사용했고 SSL설정 완료 :)! 가상호스트 서버는 그냥 저렴한 Cafe24 월 5500원 주고 결제.)
+
+![image](https://github.com/user-attachments/assets/7cd76e3e-7f82-4ae7-88a7-3daf3957c560)
+
+스팀에도 테스트용으로 앱 빌드 및 배포 완료!
 
 ## 번외-첫-포트폴리오-작품
 

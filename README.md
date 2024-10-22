@@ -579,6 +579,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 ![image](https://github.com/user-attachments/assets/fa6c32dd-d685-4aed-8535-64372398d6ae)
 
 - 데이터 수정용 웹사이트 개발 완료 (Node Express, ReactJs, 웹서버는 nginx를 사용했고 SSL설정 완료 :)! 가상호스트 서버는 그냥 저렴한 Cafe24 월 5500원 주고 결제.)
+- JWT 토큰 사용해서 로그인 세션 타임아웃도 설정 완료.
 
 ![image](https://github.com/user-attachments/assets/7cd76e3e-7f82-4ae7-88a7-3daf3957c560)
 

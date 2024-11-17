@@ -590,7 +590,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 https://github.com/user-attachments/assets/1934ae27-693d-472c-832a-c692f4ce4daf
 
 - 게임의 재미 요소를 넣는중...
-- 애니메이션 구매 완료. 싹다 바꿔야한다..!
+- 애니메이션 구매 완료. 싹다 바꿔야한다..! 몇백개중에서 고르자니 눈이너무아프다... 좀 더 효율적인 방법 없을까..?
 
 
 ## 번외-첫-포트폴리오-작품
